@@ -13,25 +13,32 @@ controllers:
       search_velocity: 4.0
       vel_threshold: 0.001
       joint: trigger_joint
-      pid: { p: 1.5, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.8, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
-  scope_calibration_controller:
+  pitch_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
-    actuator: [ scope_joint_motor ]
+    actuator: [ pitch_joint_motor ]
     velocity:
-      search_velocity: -3.1415
+      search_velocity: 4.5
       vel_threshold: 0.001
-      joint: scope_joint
-      pid: { p: 0.35, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      joint: pitch_joint
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
-  image_transmission_calibration_controller:
-    type: rm_calibration_controllers/MechanicalCalibrationController
-    actuator: [ image_transmission_joint_motor ]
+  yaw_calibration_controller:
+    type: rm_calibration_controllers/GpioCalibrationController
+    actuator: [ yaw_joint_motor ]
+    gpio: "yaw"
+    initial_gpio_state: false
     velocity:
-      search_velocity: 1.57
-      vel_threshold: 0.001
-      joint: image_transmission_joint
-      pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      search_velocity: 4.5
+      slow_forward_velocity: 2.0
+      joint: yaw_joint
+      pid: { p: 0.32, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    position:
+      pos_threshold: 0.05
+      backward_angle: 0.2
+      joint: yaw_joint
+      pid: { p: 20.0, i: 0, d: 0.8, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController
@@ -40,9 +47,11 @@ controllers:
     enable_odom_tf: true
     publish_odom_tf: false
     power:
-      effort_coeff: 2.0
-      vel_coeff: 0.009
+      effort_coeff: 2.3
+      vel_coeff: 0.012
       power_offset: -9.8
+    yaw_vel:
+      k_yaw_vel: 0.0
     twist_angular: 0.5233
     timeout: 0.1
     pid_follow: { p: 8.0, i: 0, d: 0.02, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
@@ -51,24 +60,24 @@ controllers:
     # OmniController
     wheels:
       left_front:
-        pose: [ 0.219, 0.215, 0. ]
+        pose: [ 0.145877, 0.1425, 0. ]
         roller_angle: -0.785
         joint: left_front_wheel_joint
         <<: &wheel_setting
           radius: 0.07625
-          pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+          pid: { p: 0.6, i: 0.01, d: 0.0, i_max: 0.1, i_min: 0.1, antiwindup: true, publish_state: true }
       right_front:
-        pose: [ 0.219, -0.215, 0. ]
+        pose: [ 0.145877, -0.1425, 0. ]
         roller_angle: 0.785
         joint: right_front_wheel_joint
         <<: *wheel_setting
       left_back:
-        pose: [ -0.219, 0.215, 0. ]
+        pose: [ -0.149123, 0.1425, 0. ]
         roller_angle: 0.785
         joint: left_back_wheel_joint
         <<: *wheel_setting
       right_back:
-        pose: [ -0.219, -0.215, 0. ]
+        pose: [ -0.149123, -0.1425, 0. ]
         roller_angle: -0.785
         joint: right_back_wheel_joint
         <<: *wheel_setting
@@ -84,17 +93,14 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 13.0, i: 0.05, d: 1.3, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
+      pid: { p: 30.0, i: 0.0, d: 1.5, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.05
-      k_v: 0.0
       resistance_compensation:
         resistance: 0.0
-        velocity_dead_zone: 0.0
-        effort_dead_zone: 0.0
+        error_tolerance: 0.0
     pitch:
       joint: "pitch_joint"
-      pid: { p: 18.0, i: 0, d: 0.9, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-      k_v: 0.0
+      pid: { p: 60.0, i: 0, d: 2.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     imu_name: "gimbal_imu"
     feedforward:
       gravity: 0.0
@@ -111,7 +117,6 @@ controllers:
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
-      max_track_target_vel: 2.0
     chassis_vel:
       num_data: 20
       debug: true
@@ -127,10 +132,10 @@ controllers:
       pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
     trigger:
       joint: "trigger_joint"
-      pid: { p: 80.0, i: 0.0, d: 1.8, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
-    push_per_rotation: 6
+      pid: { p: 65.0, i: 0.0, d: 1.5, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    push_per_rotation: 5
     push_qd_threshold: 0.85
-    block_effort: 6.8
+    block_effort: 5.0
     block_speed: 0.1
     block_duration: 0.05
     block_overtime: 0.5
@@ -138,5 +143,5 @@ controllers:
     anti_block_threshold: 0.1
     forward_push_threshold: 0.2
     exit_push_threshold: 0.23
-    qd_10: 560.0
-    qd_16: 560.0
+    qd_10: 555.0
+    qd_16: 555.0
