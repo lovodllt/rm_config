@@ -6,6 +6,15 @@ controllers:
     type: robot_state_controller/RobotStateController
     publish_rate: 100
 
+  gimbal_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ pitch_joint_motor ]
+    velocity:
+      joint: pitch_joint
+      search_velocity: 6.28
+      vel_threshold: 1e-2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
   trigger_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ trigger_joint_motor ]
@@ -14,6 +23,14 @@ controllers:
       search_velocity: 3.1415
       vel_threshold: 0.2
       pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  barrel_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ barrel_joint_motor ]
+    velocity:
+      joint: barrel_joint
+      search_velocity: -6.28
+      vel_threshold: 0.005
+      pid: { p: 3.0, i: 15.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController
@@ -27,7 +44,7 @@ controllers:
       power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 4.0, i: 0, d: 0.002, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 10, i: 0, d: 0.02, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
