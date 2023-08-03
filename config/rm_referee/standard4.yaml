@@ -54,11 +54,3 @@ rm_referee:
       - name: "ore"
         config: { start_position: [ 960, 720 ], size: 15, width: 2,
                   color: "yellow", content: "Ore will released after 10s", delay: 0.4 }
-      - name: "armor0"
-        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
-      - name: "armor1"
-        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
-      - name: "armor2"
-        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
-      - name: "armor3"
-        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
