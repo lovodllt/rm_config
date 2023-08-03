@@ -19,6 +19,7 @@ can_motors:
     can_bus: 0
     name: "yaw_joint_motor"
     type: "M3508"
+    need_calibration: true
   - can_id: 6
     can_bus: 0
     name: "trigger_joint_motor"
