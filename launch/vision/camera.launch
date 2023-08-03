@@ -4,6 +4,7 @@
     <arg name="camera_class" default="$(env CAMERA_CLASS)"/>
     <arg name="camera_name" default="camera"/>
     <arg name="camera_frame" default="camera_optical_frame"/>
+    <arg name="connect_type" default="$(env CONNECT_TYPE)" doc="Connect type [ecat_hw, hw]"/>
 
     <rosparam file="$(find rm_config)/config/vision/camera.yaml" command="load"/>
 
@@ -19,5 +20,7 @@
         <param name="enable_imu_trigger" value="$(arg enable_imu_trigger)"/>
         <remap from="trigger_time" to="rm_hw/gimbal_imu/trigger_time"/>
         <remap from="$(arg camera_name)/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>
+        <remap from="/$(arg camera_name)/imu_trigger" to="/rm_ecat_hw/imu_trigger"/>
+        <remap from="/rm_hw/gimbal_imu/trigger_time" to="/rm_$(arg connect_type)/gimbal_imu/trigger_time"/>
     </node>
 </launch>
