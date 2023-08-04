@@ -12,7 +12,7 @@ rm_referee:
       - name: "target"
         config: { start_position: [ 200, 750 ], size: 15, width: 2, title: "target: " }
       - name: "target_view_angle"
-        config: { type: "rectangle", start_position: [ 776, 558 ], end_position: [ 1118,813 ], width: 3 }
+        config: { type: "rectangle", start_position: [ 776, 518 ], end_position: [ 1118,767 ], width: 3 }
     time_change:
       - name: "capacitor"
         config: { type: "line", width: 5, delay: 0.2,
