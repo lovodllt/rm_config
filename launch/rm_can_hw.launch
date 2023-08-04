@@ -11,6 +11,9 @@
 
     <remap from="/data" to="/rm_hw/gimbal_imu/data"/>
 
+    <remap from="/rm_hw/gimbal_imu/trigger_time" to="/rm_can_hw/gimbal_imu/trigger_time"/>
+    <remap from="/rm_hw/imu_trigger" to="/rm_can_hw/imu_trigger"/>
+
     <param name="robot_description" command="$(find xacro)/xacro $(find rm_description)/urdf/$(arg robot_type)/$(arg robot_type).urdf.xacro
          load_chassis:=$(arg load_chassis) load_gimbal:=$(arg load_gimbal) load_shooter:=$(arg load_shooter)
          load_arm:=$(arg load_arm)

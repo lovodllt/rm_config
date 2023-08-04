@@ -77,7 +77,7 @@ rm_manual:
   cover:
     topic: "/controllers/cover_controller/command"
     on_pos: 1.7
-    off_pos: 0.208
+    off_pos: 0.0
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
