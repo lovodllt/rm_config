@@ -80,7 +80,7 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 7.5, i: 34.85, d: 0.6, i_clamp_max: 0.21, i_clamp_min: -0.21, antiwindup: true, publish_state: true }
+      pid: { p: 7.5, i: 34.85, d: 0.5, i_clamp_max: 0.21, i_clamp_min: -0.21, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.038
       resistance_compensation:
         resistance: 0.16
