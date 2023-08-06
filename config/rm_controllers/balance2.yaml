@@ -19,7 +19,7 @@ controllers:
     actuator: [ cover_joint_motor ]
     velocity:
       joint: cover_joint
-      search_velocity: -3
+      search_velocity: 3
       vel_threshold: 1e-2
       pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
@@ -41,7 +41,7 @@ controllers:
       k_chassis_vel: 0.03
     pitch:
       joint: "pitch_joint"
-      pid: { p: 4.2, i: 0.0, d: 0.22, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
+      pid: { p: 4.2, i: 0.0, d: 0.15, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
     chassis_vel:
       num_data: 20
       debug: true
