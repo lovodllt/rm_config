@@ -7,7 +7,7 @@
       load_gimbal:=true load_shooter:=true use_simulation:=false roller_type:=none
 "/>
 
-    <node name="rm_ecat_hw" pkg="rm_ecat_ros" type="rm_ecat_hw" output="screen">
+    <node name="rm_ecat_hw" pkg="rm_ecat_ros" type="rm_ecat_hw" launch-prefix="ethercat_grant" output="screen">
         <param name="setupFile" value="$(find rm_config)/config/rm_ecat_hw/$(arg robot_type).yaml"/>
     </node>
 </launch>
