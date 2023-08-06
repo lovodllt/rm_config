@@ -76,7 +76,7 @@ rm_manual:
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
     on_pos: -0.69
-    off_pos: -0.26
+    off_pos: -0.23
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
