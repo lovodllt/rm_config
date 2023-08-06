@@ -37,7 +37,5 @@ can_motors:
 can_imus:
   - can_bus: 1
     name: "gimbal_imu"
-    bias: [ -0.005, 0.0055 ,-0.0005 ]
   - can_bus: 0
     name: "base_imu"
-    bias: [ -0.006, 0.0016 ,-0.0009 ]
