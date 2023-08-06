@@ -85,7 +85,7 @@ rm_manual:
   cover:
     topic: "/controllers/cover_controller/command"
     on_pos: -1.469
-    off_pos: 0.0
+    off_pos: -0.01
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -101,19 +101,15 @@ rm_manual:
       - controllers/shooter_controller
       - controllers/cover_controller
     calibration_controllers:
-      - controllers/gimbal_calibration_controller
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
 
   gimbal_calibration:
     - start_controllers:
-        - controllers/gimbal_calibration_controller
         - controllers/cover_calibration_controller
       stop_controllers:
-        - controllers/gimbal_controller
         - controllers/cover_controller
       services_name:
-        - /controllers/gimbal_calibration_controller/is_calibrated
         - /controllers/cover_calibration_controller/is_calibrated
   shooter_calibration:
     - start_controllers:
