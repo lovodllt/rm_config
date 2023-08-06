@@ -31,24 +31,9 @@ controllers:
       search_velocity: -3
       vel_threshold: 1e-2
       pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
-  anti_tip_bar_calibration_controller:
-    type: rm_calibration_controllers/MechanicalCalibrationController
-    actuator: [ anti_tip_bar_joint_motor ]
-    velocity:
-      joint: anti_tip_bar_joint
-      search_velocity: -0.5
-      vel_threshold: 0.001
-      pid: { p: 200, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   balance_controller:
     type: rm/BalanceController
-
-  anti_tip_bar_controller:
-    type: rm/AntiTipBarController
-    tilt_angle_threshold: 0.7
-    extend_position: 0.168
-    recover_position: 0.002
-    pid_bar: { p: 500, i: 0, d: 0.5, i_max: 2.5, i_min: 0.0, antiwindup: true, publish_state: true }
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -65,7 +50,8 @@ controllers:
       k_chassis_vel: 0.03
     pitch:
       joint: "pitch_joint"
-      pid: { p: 4.2, i: 0, d: 0.22, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 5.0, i: 0, d: 0.15, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      k_v: 0.0
     chassis_vel:
       num_data: 20
       debug: true
@@ -108,3 +94,6 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.2
     anti_block_threshold: 0.1
+    qd_15: 700.0
+    qd_18: 700.0
+    qd_30: 690.0
