@@ -85,7 +85,7 @@ rm_manual:
   cover:
     topic: "/controllers/cover_controller/command"
     on_pos: -1.469
-    off_pos: -0.004
+    off_pos: -0.0
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -95,11 +95,11 @@ rm_manual:
       - controllers/joint_state_controller
       - controllers/robot_state_controller
     main_controllers:
-      - controllers/balance_controller
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
       - controllers/cover_controller
+      - controllers/balance_controller
     calibration_controllers:
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
@@ -123,4 +123,4 @@ controllers:
   cover_controller:
     type: effort_controllers/JointPositionController
     joint: "cover_joint"
-    pid: { p: 10.0, i: 0.0, d: 1.4, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 12.0, i: 0.0, d: 1.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
