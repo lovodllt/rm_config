@@ -48,7 +48,7 @@ controllers:
       k_chassis_vel: 0.03
     pitch:
       joint: "pitch_joint"
-      pid: { p: 7.0, i: 38.0, d: 0.3, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
+      pid: { p: 4.2, i: 30.0, d: 0.2, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
     chassis_vel:
       num_data: 20
       debug: true
