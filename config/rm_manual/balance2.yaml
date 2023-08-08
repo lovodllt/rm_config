@@ -75,6 +75,7 @@ rm_manual:
     wheel_speed_15: 700.0
     wheel_speed_18: 700.0
     wheel_speed_30: 730.0
+    extra_wheel_speed_once: 5.0
     heat_limit:
       low_shoot_frequency: 10
       high_shoot_frequency: 20
