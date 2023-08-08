@@ -25,6 +25,13 @@ controllers:
 
   balance_controller:
     type: rm/BalanceController
+    left_wheel:
+      joint: left_wheel_joint
+      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    right_wheel:
+      joint: right_wheel_joint
+      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 7.0, i: 0, d: 0.3, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
   orientation_controller:
     type: rm_orientation_controller/Controller
