@@ -39,7 +39,7 @@ rm_manual:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
     max_pitch_vel: 8.37
-    gimbal_scale: 5
+    gimbal_scale: 8
     track_timeout: 0.5
     eject_sensitivity: 0.38
     finish_turning_threshold: 2.9
@@ -59,8 +59,8 @@ rm_manual:
     speed_16m_per_speed: 15.4
     speed_18m_per_speed: 18.0
     speed_30m_per_speed: 30.0
-    wheel_speed_10: 560.0
-    wheel_speed_16: 560.0
+    wheel_speed_10: 600.0
+    wheel_speed_16: 600.0
     extra_wheel_speed_once: 5.0
     heat_limit:
       low_shoot_frequency: 4

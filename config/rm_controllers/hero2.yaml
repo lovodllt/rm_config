@@ -50,8 +50,7 @@ controllers:
       effort_coeff: 2.6
       vel_coeff: 0.0092
       power_offset: -9.8
-    yaw_vel:
-      k_yaw_vel: 0.0
+    max_odom_vel: 10.0
     twist_angular: 0.5233
     timeout: 0.1
     pid_follow: { p: 8.0, i: 0, d: 0.02, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }

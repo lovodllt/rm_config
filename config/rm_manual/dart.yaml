@@ -4,7 +4,7 @@ rm_manual:
   gimbal_calibrate_motor: [ "left_pitch_joint_motor","right_pitch_joint_motor","yaw_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
 
-  launch_id: [ 27, 28, 29, 30 ]
+  launch_id: [ 26, 23, 24, 25 ]
   trigger_position: [ 0.003251, 0.008298, 0.014457, 0.018 ]
 
   dart_list:
@@ -41,12 +41,13 @@ rm_manual:
       param: [ 0.008, 398.0, 0.004, 457.0 ]
       #outpost:offset,qd//base:offset,qd
 
-
   targets:
     outpost:
-      position: [ -0.15895, 0.038539 ] #pitch yaw
+      #normal -0.15895, 0.038539
+      #red -0.17029, 0.07431
+      position: [ -0.17029, 0.07431 ] #pitch yaw
     base:
-      position: [ -0.003613, 0.2407 ] #pitch yaw-0.003586, 0.26805
+      position: [ -0.003613, 0.254 ] #pitch yaw-0.003586, 0.26805
 
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
