@@ -22,6 +22,8 @@
           controllers/orientation_controller
           controllers/gimbal_controller
           controllers/shooter_controller
+          controllers/scope_calibration_controller
+          controllers/scope_controller
           "/>
 
     <group if="$(arg balance)">
