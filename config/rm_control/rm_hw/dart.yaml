@@ -44,11 +44,11 @@ rm_hw:
 
   gpios:
     calibration_left:
-      pin: 661
+      pin: 660
       direction: in
     calibration_right:
-      pin: 658
+      pin: 656
       direction: in
     calibration_yaw:
-      pin: 662
+      pin: 661
       direction: in
