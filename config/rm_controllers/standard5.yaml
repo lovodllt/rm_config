@@ -43,8 +43,9 @@ controllers:
       vel_coeff: 0.006
       power_offset: -8.41
     twist_angular: 0.5233
+    max_odom_vel: 10.0
     timeout: 0.1
-    pid_follow: { p: 7.0, i: 0, d: 0.3, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 8.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
@@ -80,7 +81,7 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 7.5, i: 34.85, d: 0.45, i_clamp_max: 0.21, i_clamp_min: -0.21, antiwindup: true, publish_state: true }
+      pid: { p: 7.5, i: 60.85, d: 0.4, i_clamp_max: 0.21, i_clamp_min: -0.21, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.038
       resistance_compensation:
         resistance: 0.16
@@ -88,7 +89,7 @@ controllers:
         effort_dead_zone: 0.5
     pitch:
       joint: "pitch_joint"
-      pid: { p: 27.0, i: 80, d: 0.7, i_clamp_max: 0.48, i_clamp_min: -0.48, antiwindup: true, publish_state: true }
+      pid: { p: 27.0, i: 80, d: 0.7, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
     chassis_vel:
       num_data: 30
       debug: true
