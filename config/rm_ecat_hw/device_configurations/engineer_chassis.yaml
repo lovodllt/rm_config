@@ -1,0 +1,50 @@
+can_motors:
+  ################### reversal ###################
+  - can_id: 1
+    can_bus: 0
+    name: "pitch_front_joint_motor"
+    type: "M2006"
+  - can_id: 2
+    can_bus: 0
+    name: "pitch_behind_joint_motor"
+    type: "M2006"
+  - can_id: 3
+    can_bus: 0
+    name: "roll_left_joint_motor"
+    type: "M2006"
+  - can_id: 4
+    can_bus: 0
+    name: "roll_right_joint_motor"
+    type: "M2006"
+  ################### chassis ###################
+  - can_id: 1
+    can_bus: 1
+    name: "left_front_wheel_motor"
+    type: "M3508"
+  - can_id: 2
+    can_bus: 1
+    name: "left_back_wheel_motor"
+    type: "M3508"
+  - can_id: 3
+    can_bus: 1
+    name: "right_back_wheel_motor"
+    type: "M3508"
+  - can_id: 4
+    can_bus: 1
+    name: "right_front_wheel_motor"
+    type: "M3508"
+
+  ################### drag ###################
+  - can_id: 5
+    can_bus: 1
+    name: "drag_joint_motor"
+    type: "M2006"
+  - can_id: 6
+    can_bus: 1
+    name: "mimic_drag_joint_motor"
+    type: "M2006"
+  ################### gpio ###################
+gpios:
+  - name: "gripper"
+    pin: 0
+    mode: 1
