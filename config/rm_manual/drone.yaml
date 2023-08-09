@@ -107,6 +107,7 @@ rm_manual:
         - /controllers/gimbal_calibration_controller/is_calibrated
         - /controllers/scope_calibration_controller/is_calibrated
         - /controllers/trigger_calibration_controller/is_calibrated
+
 controllers:
   scope_controller:
     type: effort_controllers/JointPositionController
