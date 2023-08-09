@@ -22,6 +22,14 @@ controllers:
       search_velocity: 3.1415
       vel_threshold: 0.2
       pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  scope_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ scope_joint_motor ]
+    velocity:
+      search_velocity: -1.57
+      vel_threshold: 0.001
+      joint: scope_joint
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -48,7 +56,7 @@ controllers:
       resistance_coff_qd_15: 0.0
       resistance_coff_qd_16: 0.0
       resistance_coff_qd_18: 0.0
-      resistance_coff_qd_30: 0.4
+      resistance_coff_qd_30: 0.3
       g: 9.81
       delay: 0.03
       dt: 0.001
@@ -81,3 +89,8 @@ controllers:
     qd_15: 400.0
     qd_18: 700.0
     qd_30: 690.0
+
+  scope_controller:
+    type: effort_controllers/JointPositionController
+    joint: "scope_joint"
+    pid: { p: 8.0, i: 0.0, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
