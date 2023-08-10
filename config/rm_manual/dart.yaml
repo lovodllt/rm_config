@@ -14,7 +14,7 @@ rm_manual:
       #outpost:offset,qd//base:offset,qd
     second_dart:
       id: 24
-      param: [ 0.0045, 407.0, 0.0, 466.0 ]
+      param: [ 0.004, 408.5, 0.0, 466.0 ]
       #outpost:offset,qd//base:offset,qd
     third_dart:
       id: 25
@@ -22,7 +22,7 @@ rm_manual:
       #outpost:offset,qd//base:offset,qd
     fourth_dart:
       id: 26
-      param: [ 0.005, 398.0, -0.0004, 457.0 ]
+      param: [ 0.0045, 399.5, -0.0004, 457.0 ]
       #outpost:offset,qd//base:offset,qd
     fifth_dart:
       id: 27
@@ -44,10 +44,11 @@ rm_manual:
   targets:
     outpost:
       #normal -0.15895, 0.038539
-      #red -0.17029, 0.07431
-      position: [ -0.17029, 0.07431 ] #pitch yaw
+      #red -0.17029, 0.07431(偏右)
+      #blue -0.16246, 0.061345（四中二）
+      position: [ -0.16246, 0.061345 ] #pitch yaw
     base:
-      position: [ -0.003613, 0.254 ] #pitch yaw-0.003586, 0.26805
+      position: [ -0.003613, 0.26805 ] #pitch yaw-0.003586, 0.26805
 
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
