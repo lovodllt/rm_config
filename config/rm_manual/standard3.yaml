@@ -15,9 +15,9 @@ rm_manual:
     capacitor_threshold: 0.2
     charge_power: 20
     extra_power: 30
-    burst_power: 220
+    burst_power: 200
     buffer_threshold: 10
-    power_gain: 0.85
+    power_gain: 0.75
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/cmd_chassis"
@@ -37,8 +37,8 @@ rm_manual:
     gyro_rotate_reduction: 0.4
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 15
-    max_pitch_vel: 12
+    max_yaw_vel: 12.56
+    max_pitch_vel: 8.37
     gimbal_scale: 8
     track_timeout: 0.5
     finish_turning_threshold: 2.9
