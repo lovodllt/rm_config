@@ -49,4 +49,9 @@ can_motors:
     name: "pitch_joint_motor"
     type: "M3508"
     need_calibration: true
+  ################### gpio ###################
+gpios:
+  - name: "gripper"
+    pin: 0
+    mode: 1
 

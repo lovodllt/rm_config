@@ -53,8 +53,3 @@ can_motors:
     name: "mimic_drag_joint_motor"
     type: "M2006"
     need_calibration: true
-  ################### gpio ###################
-gpios:
-  - name: "gripper"
-    pin: 0
-    mode: 1
