@@ -21,7 +21,7 @@ controllers:
       joint3: { p: 24000.0, i: 0, d: 650.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint4: { p: 500.0, i: 10.0, d: 4., i_clamp_max: 60, i_clamp_min: -60.0, antiwindup: true, publish_state: true }
       joint5: { p: 50.0, i: 0, d: 0.6, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-      joint6: { p: 200.0, i: 0, d: 2.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint6: { p: 280.0, i: 0, d: 3.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 
 
   chassis_controller:
@@ -157,10 +157,10 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint1_motor ]
     velocity:
-      search_velocity: 1.0
+      search_velocity: 0.6
       vel_threshold: 0.001
       joint: joint1
-      pid: { p: 150, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 220, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   joint2_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -169,13 +169,13 @@ controllers:
       search_velocity: 0.4
       vel_threshold: 0.001
       joint: joint2
-      pid: { p: 150, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 300, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
 
   joint3_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint3_motor ]
     velocity:
-      search_velocity: -0.6
+      search_velocity: -0.8
       vel_threshold: 0.001
       joint: joint3
       pid: { p: 45, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
@@ -187,7 +187,7 @@ controllers:
       search_velocity: -2.3
       vel_threshold: 0.05
       joint: joint4
-      pid: { p: 4, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
 
   joint5_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -196,7 +196,7 @@ controllers:
       search_velocity: -2.5
       vel_threshold: 0.001
       joint: joint5
-      pid: { p: 0.5, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
 
   joint6_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -205,10 +205,10 @@ controllers:
       search_velocity: -4.
       vel_threshold: 0.001
       joint: joint6
-      pid: { p: 0.8, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 1., i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
     return:
       joint: joint6
-      pid: { p: 5, i: 0, d: 0.2, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 10, i: 0, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
       target_position: 0.
     pos_threshold: 0.3
 
@@ -219,7 +219,7 @@ controllers:
       search_velocity: -1.5
       vel_threshold: 0.01
       joint: pitch_joint
-      pid: { p: 0.05, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
 
   drag_calibration_controller:
@@ -229,7 +229,7 @@ controllers:
       search_velocity: -2.0
       vel_threshold: 0.05
       joint: drag_joint
-      pid: { p: 0.38, i: 0, d: 0., i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 0.87, i: 0, d: 0., i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
   #    return:
   #      joint: drag_joint
   #      pid: { p: 0.87, i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
@@ -243,7 +243,7 @@ controllers:
       search_velocity: -2.0
       vel_threshold: 0.05
       joint: mimic_drag_joint
-      pid: { p: 0.38, i: 0, d: 0., i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 0.8, i: 0, d: 0., i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
   #    return:
   #      joint: mimic_drag_joint
   #      pid: { p: 0.87, i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
@@ -253,13 +253,13 @@ controllers:
   drag_controller:
     type: effort_controllers/JointPositionController
     joint: drag_joint
-    pid: { p: 25., i: 0., d: 0.7, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 30., i: 0., d: 1.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
   mimic_drag_controller:
     type: mimic_joint_controller/MimicJointController
     joint: mimic_drag_joint
     target_joint_name: drag_joint
-    pid: { p: 25., i: 0., d: 0.7, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 30., i: 0., d: 1.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
   joint7_controller:
     type: effort_controllers/JointPositionController
