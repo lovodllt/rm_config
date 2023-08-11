@@ -35,7 +35,7 @@ rm_manual:
     seventh_dart:
       id: 29
       param: [ 0.008, 398.0, 0.00065, 460.0 ]
-      #outpost:offset,qd//base:offset,qdr
+      #outpost:offset,qd//base:offset,qd
     eighth_dart:
       id: 30
       param: [ 0.008, 398.0, 0.004, 457.0 ]
