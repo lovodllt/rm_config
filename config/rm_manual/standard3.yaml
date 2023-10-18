@@ -15,9 +15,9 @@ rm_manual:
     capacitor_threshold: 0.2
     charge_power: 20
     extra_power: 30
-    burst_power: 220
+    burst_power: 200
     buffer_threshold: 10
-    power_gain: 0.85
+    power_gain: 0.75
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/cmd_chassis"
@@ -68,7 +68,7 @@ rm_manual:
       burst_shoot_frequency: 20
       minimal_shoot_frequency: 1.75
       safe_shoot_frequency: 3
-      heat_coeff: 20.0
+      heat_coeff: 28.0
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"

@@ -40,8 +40,8 @@ controllers:
     enable_odom_tf: true
     publish_odom_tf: false
     power:
-      effort_coeff: 2.0
-      vel_coeff: 0.009
+      effort_coeff: 2.15
+      vel_coeff: 0.012
       power_offset: -9.8
     twist_angular: 0.5233
     max_odom_vel: 10.0

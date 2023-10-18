@@ -62,7 +62,7 @@ rm_manual:
     speed_30m_per_speed: 27.2
     wheel_speed_15: 450.0
     wheel_speed_18: 500.0
-    wheel_speed_30: 710.0
+    wheel_speed_30: 750.0
     extra_wheel_speed_once: 5.0
     heat_limit:
       low_shoot_frequency: 10
@@ -80,6 +80,12 @@ rm_manual:
     topic: "/controllers/cover_controller/command"
     on_pos: 1.7
     off_pos: 0.0
+  buff_switch:
+    fail_limit: 10
+    service_name: "/buff_status_switch"
+  buff_type_switch:
+    fail_limit: 10
+    service_name: "/forecast/status_switch"
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"

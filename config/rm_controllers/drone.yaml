@@ -26,10 +26,10 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ scope_joint_motor ]
     velocity:
-      search_velocity: -1.57
+      search_velocity: -3.14
       vel_threshold: 0.001
       joint: scope_joint
-      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.18, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -42,10 +42,10 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 7.5, i: 0, d: 0.3, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      pid: { p: 6.0, i: 0, d: 0.25, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
     pitch:
       joint: "pitch_joint"
-      pid: { p: 22.0, i: 0, d: 0.75, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 18.0, i: 80.0, d: 0.65, i_clamp_max: -0.6, i_clamp_min: 0.6, antiwindup: true, publish_state: true }
     imu_name: "gimbal_imu"
     feedforward:
       gravity: 0.0
@@ -56,9 +56,9 @@ controllers:
       resistance_coff_qd_15: 0.0
       resistance_coff_qd_16: 0.0
       resistance_coff_qd_18: 0.0
-      resistance_coff_qd_30: 0.3
+      resistance_coff_qd_30: 0.2
       g: 9.81
-      delay: 0.03
+      delay: 0.3
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
