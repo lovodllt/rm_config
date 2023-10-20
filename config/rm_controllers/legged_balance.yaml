@@ -1,0 +1,42 @@
+controllers:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+  robot_state_controller:
+    type: robot_state_controller/RobotStateController
+    publish_rate: 100
+
+  legged_balance_controller:
+    type: rm/LeggedBalanceController
+    left_wheel:
+      joint: left_wheel_joint
+      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    right_wheel:
+      joint: right_wheel_joint
+      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 7.0, i: 0, d: 0.3, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_left_leg: { p: 2500.0, i: 100, d: 250, i_clamp_max: 10.0, i_clamp_min: -10.0, antiwindup: true, publish_state: true }
+    pid_right_leg: { p: 2500.0, i: 100, d: 250, i_clamp_max: 10.0, i_clamp_min: -10.0, antiwindup: true, publish_state: true }
+    pid_theta_diff: { p: 80.0, i: 0.0, d: 5.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_roll: { p: 2000.0, i: 50, d: 50, i_max: 50.0, i_min: -50.0, antiwindup: true, publish_state: true }
+
+  leg_lf_effort_controller:
+    type: effort_controllers/JointPositionController
+    joint: "left_front_first_leg_joint"
+    pid: { p: 2000, i: 0, d: 100, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+
+  leg_lb_effort_controller:
+    type: effort_controllers/JointPositionController
+    joint: "left_back_first_leg_joint"
+    pid: { p: 2000, i: 0, d: 100, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+
+  leg_rf_effort_controller:
+    type: effort_controllers/JointPositionController
+    joint: "right_front_first_leg_joint"
+    pid: { p: 2000, i: 0, d: 100, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+
+  leg_rb_effort_controller:
+    type: effort_controllers/JointPositionController
+    joint: "right_back_first_leg_joint"
+    pid: { p: 2000, i: 0, d: 100, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+    
