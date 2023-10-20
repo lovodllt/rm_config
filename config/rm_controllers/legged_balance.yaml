@@ -20,23 +20,42 @@ controllers:
     pid_theta_diff: { p: 80.0, i: 0.0, d: 5.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     pid_roll: { p: 2000.0, i: 50, d: 50, i_max: 50.0, i_min: -50.0, antiwindup: true, publish_state: true }
 
-  leg_lf_effort_controller:
-    type: effort_controllers/JointPositionController
-    joint: "left_front_first_leg_joint"
-    pid: { p: 2000, i: 0, d: 100, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+  legged_balance_lqr_controller:
+    type: rm_chassis_controllers/LeggedBalanceLQRController
+    # ChassisBase
+    publish_rate: 100
+    enable_odom_tf: true
+    publish_odom_tf: true
+    power:
+      effort_coeff: 0
+      vel_coeff: 0
+      power_offset: 0
+    twist_angular: 0.5233
+    timeout: 0.1
+    pid_follow: { p: 7.0, i: 0, d: 0.3, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
+    # BalanceLQRController
+    left_wheel:
+      joint: left_wheel_joint
+      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    right_wheel:
+      joint: right_wheel_joint
+      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_left_leg: { p: 2500.0, i: 100, d: 250, i_clamp_max: 10.0, i_clamp_min: -10.0, antiwindup: true, publish_state: true }
+    pid_right_leg: { p: 2500.0, i: 100, d: 250, i_clamp_max: 10.0, i_clamp_min: -10.0, antiwindup: true, publish_state: true }
+    pid_theta_diff: { p: 10.0, i: 0.0, d: 0.1, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_roll: { p: 2000.0, i: 50, d: 50, i_max: 50.0, i_min: -50.0, antiwindup: true, publish_state: true }
+    vmc: { l_a: 0.054, l_u: 0.15, l_d: 0.25 }
+    dynamics: { d: 0.419, l_c: 0.03, r: 0.125, massBody: 0.56, massLeg: 0.56, massWheel: 0.4657, jWheel: 0.005773, g: 9.8,
+                kWheel: 0.002907, i1: 2.918e-1, i2: 2.384e-1, i3: 2.515e-1 }
+    block_angle: 0.7
+    q: [ 0.5, 100, 100, 50, 100, 10, 0.5, 0.5, 0.5, 0.5 ]
+    r: [ 0.5, 0.5, 0.5, 0.5 ]
+    leg_length: # Change leg length in leg_cmd topic
+      - 0.11
+      - 0.15
+      - 0.18
+      - 0.22
+      - 0.26
 
-  leg_lb_effort_controller:
-    type: effort_controllers/JointPositionController
-    joint: "left_back_first_leg_joint"
-    pid: { p: 2000, i: 0, d: 100, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
-
-  leg_rf_effort_controller:
-    type: effort_controllers/JointPositionController
-    joint: "right_front_first_leg_joint"
-    pid: { p: 2000, i: 0, d: 100, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
-
-  leg_rb_effort_controller:
-    type: effort_controllers/JointPositionController
-    joint: "right_back_first_leg_joint"
-    pid: { p: 2000, i: 0, d: 100, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
-    
+    #powerCoeffEffort: 1.339, powerCoeffVel: 0.016, powerOffset: 9.8
