@@ -179,8 +179,8 @@ rm_manual:
       - controllers/gimbal_controller
       - controllers/multi_dof_controller
       - controllers/joint7_controller
-      - controllers/drag_controller
-      - controllers/mimic_drag_controller
+#      - controllers/drag_controller
+#      - controllers/mimic_drag_controller
 
     calibration_controllers:
       - controllers/joint1_calibration_controller
@@ -191,8 +191,8 @@ rm_manual:
       - controllers/joint6_calibration_controller
       - controllers/pitch_calibration_controller
       - controllers/joint7_calibration_controller
-      - controllers/drag_calibration_controller
-      - controllers/mimic_drag_calibration_controller
+#      - controllers/drag_calibration_controller
+#      - controllers/mimic_drag_calibration_controller
 
   pitch_calibration:
     - start_controllers:
@@ -210,8 +210,8 @@ rm_manual:
         - controllers/joint7_calibration_controller
         - controllers/joint4_calibration_controller
         - controllers/joint6_calibration_controller
-        - controllers/drag_calibration_controller
-        - controllers/mimic_drag_calibration_controller
+#        - controllers/drag_calibration_controller
+#        - controllers/mimic_drag_calibration_controller
         - controllers/pitch_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
@@ -226,8 +226,8 @@ rm_manual:
         - /controllers/joint4_calibration_controller/is_calibrated
         - /controllers/joint6_calibration_controller/is_calibrated
         - /controllers/joint7_calibration_controller/is_calibrated
-        - /controllers/drag_calibration_controller/is_calibrated
-        - /controllers/mimic_drag_calibration_controller/is_calibrated
+#        - /controllers/drag_calibration_controller/is_calibrated
+#        - /controllers/mimic_drag_calibration_controller/is_calibrated
         - /controllers/pitch_calibration_controller/is_calibrated
     - start_controllers:
         - controllers/joint4_calibration_controller
