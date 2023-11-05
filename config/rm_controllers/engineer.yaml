@@ -15,6 +15,7 @@ controllers:
       - joint4
       - joint5
       - joint6
+      - joint7
     gains:
       joint1: { p: 26000.0, i: 0, d: 600.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint2: { p: 30000, i: 0, d: 1000.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
@@ -22,6 +23,7 @@ controllers:
       joint4: { p: 500.0, i: 10.0, d: 4., i_clamp_max: 60, i_clamp_min: -60.0, antiwindup: true, publish_state: true }
       joint5: { p: 50.0, i: 0, d: 0.6, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint6: { p: 280.0, i: 0, d: 3.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint7: { p: 10., i: 0., d: 1.2, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
 
   chassis_controller:
@@ -212,6 +214,15 @@ controllers:
       target_position: 0.
     pos_threshold: 0.3
 
+  joint7_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ joint7_motor ]
+    velocity:
+      search_velocity: -2.0
+      vel_threshold: 0.01
+      joint: joint7
+      pid: { p: 0.8, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
   pitch_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ pitch_joint_motor ]
@@ -261,15 +272,4 @@ controllers:
     target_joint_name: drag_joint
     pid: { p: 30., i: 0., d: 1.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
-  joint7_controller:
-    type: effort_controllers/JointPositionController
-    joint: joint7
-    pid: { p: 10., i: 0., d: 1.2, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-  joint7_calibration_controller:
-    type: rm_calibration_controllers/MechanicalCalibrationController
-    actuator: [ joint7_motor ]
-    velocity:
-      search_velocity: -2.0
-      vel_threshold: 0.01
-      joint: joint7
-      pid: { p: 0.8, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
