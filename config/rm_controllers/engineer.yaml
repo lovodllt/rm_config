@@ -20,8 +20,8 @@ controllers:
       joint1: { p: 26000.0, i: 0, d: 600.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint2: { p: 30000, i: 0, d: 1000.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint3: { p: 24000.0, i: 0, d: 650.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-      joint4: { p: 500.0, i: 10.0, d: 4., i_clamp_max: 60, i_clamp_min: -60.0, antiwindup: true, publish_state: true }
-      joint5: { p: 50.0, i: 0, d: 0.6, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint4: { p: 30.0, i: 0.0, d: 1.4., i_clamp_max: 0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      joint5: { p: 35.0, i: 0, d: 5.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint6: { p: 280.0, i: 0, d: 3.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint7: { p: 10., i: 0., d: 1.2, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
