@@ -189,7 +189,7 @@ controllers:
       search_velocity: -2.3
       vel_threshold: 0.05
       joint: joint4
-      pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 2, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
 
   joint5_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -199,6 +199,11 @@ controllers:
       vel_threshold: 0.001
       joint: joint5
       pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+    return:
+      joint: joint5
+      pid: { p: 5, i: 0, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      target_position: 0.
+    pos_threshold: 0.2
 
   joint6_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -222,6 +227,11 @@ controllers:
       vel_threshold: 0.01
       joint: joint7
       pid: { p: 0.8, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    return:
+      joint: joint7
+      pid: { p: 5, i: 0, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      target_position: 0.
+    pos_threshold: 0.2
 
   pitch_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
