@@ -120,10 +120,10 @@ controllers:
   shooter_controller:
     type: rm_shooter_controllers/Controller
     publish_rate: 50
-    friction_left_front:
+    friction_left:
       joint: "left_front_friction_wheel_joint"
       pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
-    friction_right_front:
+    friction_right:
       joint: "right_front_friction_wheel_joint"
       pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
     friction_left_back:
