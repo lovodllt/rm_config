@@ -153,10 +153,6 @@ rm_manual:
       k_hp: 1.0
       k_freq: 1.0
       timeout: 0.0
-  drag:
-    topic: "/controllers/drag_controller/command"
-    on_pos: 0.565
-    off_pos: 1.75
   joint7:
     topic: "/controllers/joint7_controller/command"
     on_pos: 0.1
@@ -208,27 +204,27 @@ rm_manual:
         - controllers/joint2_calibration_controller
         - controllers/joint3_calibration_controller
         - controllers/joint7_calibration_controller
-        - controllers/joint4_calibration_controller
+        - controllers/joint5_calibration_controller
         - controllers/joint6_calibration_controller
 #        - controllers/drag_calibration_controller
 #        - controllers/mimic_drag_calibration_controller
-        - controllers/pitch_calibration_controller
+#        - controllers/pitch_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
         - controllers/arm_trajectory_controller
         - controllers/joint7_controller
-        - controllers/drag_controller
-        - controllers/mimic_drag_controller
+#        - controllers/drag_controller
+#        - controllers/mimic_drag_controller
       services_name:
         - /controllers/joint1_calibration_controller/is_calibrated
         - /controllers/joint2_calibration_controller/is_calibrated
         - /controllers/joint3_calibration_controller/is_calibrated
-        - /controllers/joint4_calibration_controller/is_calibrated
+        - /controllers/joint5_calibration_controller/is_calibrated
         - /controllers/joint6_calibration_controller/is_calibrated
         - /controllers/joint7_calibration_controller/is_calibrated
 #        - /controllers/drag_calibration_controller/is_calibrated
 #        - /controllers/mimic_drag_calibration_controller/is_calibrated
-        - /controllers/pitch_calibration_controller/is_calibrated
+#        - /controllers/pitch_calibration_controller/is_calibrated
     - start_controllers:
         - controllers/joint4_calibration_controller
         - controllers/joint5_calibration_controller
