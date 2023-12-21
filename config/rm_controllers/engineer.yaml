@@ -160,7 +160,7 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint1_motor ]
     velocity:
-      search_velocity: 0.6
+      search_velocity: -0.6
       vel_threshold: 0.001
       joint: joint1
       pid: { p: 220, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
@@ -169,7 +169,7 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint2_motor ]
     velocity:
-      search_velocity: 0.4
+      search_velocity: -0.4
       vel_threshold: 0.001
       joint: joint2
       pid: { p: 300, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
