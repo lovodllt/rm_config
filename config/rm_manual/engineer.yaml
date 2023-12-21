@@ -227,9 +227,7 @@ rm_manual:
 #        - /controllers/pitch_calibration_controller/is_calibrated
     - start_controllers:
         - controllers/joint4_calibration_controller
-        - controllers/joint5_calibration_controller
       stop_controllers:
         - controllers/arm_trajectory_controller
       services_name:
         - /controllers/joint4_calibration_controller/is_calibrated
-        - /controllers/joint5_calibration_controller/is_calibrated
