@@ -127,26 +127,29 @@ controllers:
 
 
 
-#  gimbal_controller:
-#    type: rm_gimbal_controllers/Controller
-#    yaw:
-#      joint: "yaw_joint"
-#      pid: { p: 2.0, i: 0.1, d: 0.05, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
-#    feedforward:
-#      gravity: 0.0
-#      enable_gravity_compensation: false
-#      mass_origin: [ 0.0,0.0,0.0 ]
-#    bullet_solver:
-#      resistance_coff_qd_10: 0.45
-#      resistance_coff_qd_15: 1.0
-#      resistance_coff_qd_16: 0.7
-#      resistance_coff_qd_18: 0.55
-#      resistance_coff_qd_30: 3.0
-#      g: 9.81
-#      delay: 0.1
-#      dt: 0.001
-#      timeout: 0.001
-#      publish_rate: 50
+  gimbal_controller:
+    type: rm_gimbal_controllers/Controller
+    yaw:
+      joint: "yaw_joint"
+      pid: { p: 2.0, i: 0.1, d: 0.05, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
+    pitch:
+      joint: "pitch_joint"
+      pid: { p: 0., i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+    feedforward:
+      gravity: 0.0
+      enable_gravity_compensation: false
+      mass_origin: [ 0.0,0.0,0.0 ]
+    bullet_solver:
+      resistance_coff_qd_10: 0.45
+      resistance_coff_qd_15: 1.0
+      resistance_coff_qd_16: 0.7
+      resistance_coff_qd_18: 0.55
+      resistance_coff_qd_30: 3.0
+      g: 9.81
+      delay: 0.1
+      dt: 0.001
+      timeout: 0.001
+      publish_rate: 50
   yaw_controller:
     type: effort_controllers/JointPositionController
     joint: yaw_joint
@@ -156,6 +159,21 @@ controllers:
     type: gpio_controller/Controller
     gpios: [ "gripper" ]
 
+  pitch_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ pitch_joint_motor ]
+    velocity:
+      search_velocity: -1.5
+      vel_threshold: 0.01
+      joint: pitch_joint
+      pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
+  mimic_joint1_controller:
+    type: mimic_joint_controller/MimicJointController
+    target_joint_name: "joint1"
+    joint: "mimic_joint1"
+    pid: { p: 26000.0, i: 0, d: 600.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+
   joint1_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint1_motor ]
@@ -164,6 +182,15 @@ controllers:
       vel_threshold: 0.001
       joint: joint1
       pid: { p: 220, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
+  mimic_joint1_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ mimic_joint1_motor ]
+    velocity:
+      search_velocity: -0.0
+      vel_threshold: 0.001
+      joint: mimic_joint1
+      pid: { p: 0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   joint2_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController

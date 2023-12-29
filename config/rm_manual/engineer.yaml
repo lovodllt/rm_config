@@ -174,7 +174,7 @@ rm_manual:
       - controllers/gpio_controller
       - controllers/gimbal_controller
       - controllers/multi_dof_controller
-      - controllers/joint7_controller
+      - controllers/mimic_joint1_controller
 #      - controllers/drag_controller
 #      - controllers/mimic_drag_controller
 
@@ -187,6 +187,7 @@ rm_manual:
       - controllers/joint6_calibration_controller
       - controllers/pitch_calibration_controller
       - controllers/joint7_calibration_controller
+      - controllers/mimic_joint1_calibration_controller
 #      - controllers/drag_calibration_controller
 #      - controllers/mimic_drag_calibration_controller
 
@@ -208,11 +209,10 @@ rm_manual:
         - controllers/joint6_calibration_controller
 #        - controllers/drag_calibration_controller
 #        - controllers/mimic_drag_calibration_controller
-#        - controllers/pitch_calibration_controller
+        - controllers/pitch_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
         - controllers/arm_trajectory_controller
-        - controllers/joint7_controller
 #        - controllers/drag_controller
 #        - controllers/mimic_drag_controller
       services_name:
