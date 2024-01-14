@@ -1,25 +1,15 @@
 can_motors:
-  ################### reversal ###################
+  ################### ore bin ###################
   - can_id: 1
     can_bus: 0
-    name: "pitch_front_joint_motor"
-    type: "M2006"
+    name: "ore_bin_rotate_joint_motor"
+    type: "M3508"
     need_calibration: false
   - can_id: 2
     can_bus: 0
-    name: "pitch_behind_joint_motor"
-    type: "M2006"
-    need_calibration: false
-  - can_id: 3
-    can_bus: 0
-    name: "roll_left_joint_motor"
-    type: "M2006"
-    need_calibration: false
-  - can_id: 4
-    can_bus: 0
-    name: "roll_right_joint_motor"
-    type: "M2006"
-    need_calibration: false
+    name: "ore_bin_lifter_joint_motor"
+    type: "M3508"
+    need_calibration: true
   ################### chassis ###################
   - can_id: 1
     can_bus: 1
