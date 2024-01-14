@@ -20,9 +20,9 @@ rm_manual:
       - [ 80.0,5.0 ]
       - [ 100.0,7.0 ]
       - [ 150.0,8.0 ]
-    safety_power: 200
+    safety_power: 2000
     capacitor_threshold: 0.2
-    charge_power: 20
+    charge_power: 2000
     extra_power: 120
     burst_power: 220
     buffer_threshold: 10
@@ -37,7 +37,7 @@ rm_manual:
       - [ 60.0,1.20 ]
       - [ 80.0,1.45 ]
       - [ 100.0,1.70 ]
-      - [ 220.0,2.60 ]
+      - [ 220.0,5.00 ]
     max_linear_y:
       - [ 60.0,1.0 ]
       - [ 80.0,1.3 ]
