@@ -10,6 +10,17 @@ can_motors:
     name: "ore_bin_lifter_joint_motor"
     type: "M3508"
     need_calibration: true
+  ################# extend arm ##################
+  - can_id: 3
+    can_bus: 0
+    name: "extend_arm1_joint_motor"
+    type: "M2006"
+    need_calibration: true
+  - can_id: 4
+    can_bus: 0
+    name: "extend_arm2_joint_motor"
+    type: "M2006"
+    need_calibration: true
   ################### chassis ###################
   - can_id: 1
     can_bus: 1
