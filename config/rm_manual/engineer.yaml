@@ -153,12 +153,6 @@ rm_manual:
       k_hp: 1.0
       k_freq: 1.0
       timeout: 0.0
-  joint7:
-    topic: "/controllers/joint7_controller/command"
-    on_pos: 0.1
-    off_pos: 1.715
-  reversal:
-    topic: "/controllers/multi_dof_controller/command"
 
   chassis_calibrate_motor: [ ]
   gimbal_calibrate_motor: [ ]
@@ -169,27 +163,30 @@ rm_manual:
       - controllers/robot_state_controller
       - controllers/joint_state_controller
     main_controllers:
-      - controllers/chassis_controller
       - controllers/arm_trajectory_controller
-      - controllers/gpio_controller
+      - controllers/chassis_controller
       - controllers/gimbal_controller
-      - controllers/multi_dof_controller
-      - controllers/mimic_joint1_controller
-#      - controllers/drag_controller
-#      - controllers/mimic_drag_controller
+      - controllers/gpio_controller
+      - controllers/ore_bin_lifter_controller
+      - controllers/ore_bin_rotate_controller
+      - controllers/gimbal_lifter_controller
+      - controllers/extend_arm_a_controller
+      - controllers/extend_arm_b_controller
 
     calibration_controllers:
+      - controllers/pitch_calibration_controller
       - controllers/joint1_calibration_controller
       - controllers/joint2_calibration_controller
       - controllers/joint3_calibration_controller
       - controllers/joint4_calibration_controller
       - controllers/joint5_calibration_controller
       - controllers/joint6_calibration_controller
-      - controllers/pitch_calibration_controller
       - controllers/joint7_calibration_controller
-      - controllers/mimic_joint1_calibration_controller
-#      - controllers/drag_calibration_controller
-#      - controllers/mimic_drag_calibration_controller
+      - controllers/ore_bin_lifter_calibration_controller
+      - controllers/gimbal_lifter_calibration_controller
+      - controllers/extend_arm_a_calibration_controller
+      - controllers/extend_arm_b_calibration_controller
+
 
   pitch_calibration:
     - start_controllers:
@@ -207,14 +204,18 @@ rm_manual:
         - controllers/joint7_calibration_controller
         - controllers/joint5_calibration_controller
         - controllers/joint6_calibration_controller
-#        - controllers/drag_calibration_controller
-#        - controllers/mimic_drag_calibration_controller
         - controllers/pitch_calibration_controller
+        - controllers/ore_bin_lifter_calibration_controller
+        - controllers/gimbal_lifter_calibration_controller
+        - controllers/extend_arm_a_calibration_controller
+        - controllers/extend_arm_b_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
         - controllers/arm_trajectory_controller
-#        - controllers/drag_controller
-#        - controllers/mimic_drag_controller
+        - controllers/ore_bin_lifter_controller
+        - controllers/gimbal_lifter_controller
+        - controllers/extend_arm_a_controller
+        - controllers/extend_arm_b_controller
       services_name:
         - /controllers/joint1_calibration_controller/is_calibrated
         - /controllers/joint2_calibration_controller/is_calibrated
@@ -222,9 +223,12 @@ rm_manual:
         - /controllers/joint5_calibration_controller/is_calibrated
         - /controllers/joint6_calibration_controller/is_calibrated
         - /controllers/joint7_calibration_controller/is_calibrated
-#        - /controllers/drag_calibration_controller/is_calibrated
-#        - /controllers/mimic_drag_calibration_controller/is_calibrated
-#        - /controllers/pitch_calibration_controller/is_calibrated
+        - /controllers/pitch_calibration_controller/is_calibrated
+        - controllers/ore_bin_lifter_calibration_controller/is_calibrated
+        - controllers/gimbal_lifter_calibration_controller/is_calibrated
+        - controllers/extend_arm_a_calibration_controller/is_calibrated
+        - controllers/extend_arm_b_calibration_controller/is_calibrated
+
     - start_controllers:
         - controllers/joint4_calibration_controller
       stop_controllers:
