@@ -109,7 +109,7 @@ controllers:
   gimbal_lifter_controller:
     type: effort_controllers/JointPositionController
     joint: gimbal_lifter_joint
-    pid: { p: 3., i: 0.1, d: 0.05, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+    pid: { p: 20000., i: 0., d: 1000, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
 
   extend_arm_a_controller:
     type: effort_controllers/JointPositionController
@@ -138,7 +138,7 @@ controllers:
       search_velocity: -1.5
       vel_threshold: 0.01
       joint: gimbal_lifter_joint
-      pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 5, i: 0, d: 1, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   extend_arm_a_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController

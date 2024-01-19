@@ -13,7 +13,6 @@
           controllers/robot_state_controller
           controllers/arm_trajectory_controller
           controllers/chassis_controller
-          controllers/orientation_controller
           controllers/gimbal_controller
           controllers/joint1_calibration_controller
           controllers/joint2_calibration_controller
