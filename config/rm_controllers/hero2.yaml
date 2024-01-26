@@ -15,7 +15,7 @@ controllers:
       joint: trigger_joint
       pid: { p: 0.8, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
-  pitch_calibration_controller:
+  gimbal_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ pitch_joint_motor ]
     velocity:
