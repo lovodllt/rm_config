@@ -53,7 +53,7 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_tolerance: 0.08
+    gimbal_error_tolerance: 0.05
     target_acceleration_tolerance: 99.
     speed_10m_per_speed: 10.0
     speed_15m_per_speed: 13.5
@@ -62,7 +62,7 @@ rm_manual:
     speed_30m_per_speed: 27.2
     wheel_speed_15: 450.0
     wheel_speed_18: 500.0
-    wheel_speed_30: 750.0
+    wheel_speed_30: 780.0
     extra_wheel_speed_once: 5.0
     heat_limit:
       low_shoot_frequency: 10
@@ -70,6 +70,7 @@ rm_manual:
       burst_shoot_frequency: 20
       minimal_shoot_frequency: 1.75
       safe_shoot_frequency: 3
+      safe_speed_limit: 30
       heat_coeff: 20.0
       type: "ID1_17MM"
   camera:
@@ -130,4 +131,4 @@ controllers:
   cover_controller:
     type: effort_controllers/JointPositionController
     joint: "cover_joint"
-    pid: { p: 15.0, i: 0.0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 5.0, i: 2.5, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
