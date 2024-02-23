@@ -199,39 +199,39 @@ rm_manual:
   calibration_gather:
     - start_controllers:
         - controllers/joint1_calibration_controller
-        - controllers/joint2_calibration_controller
         - controllers/joint3_calibration_controller
+        - controllers/joint4_calibration_controller
         - controllers/joint7_calibration_controller
         - controllers/joint5_calibration_controller
         - controllers/joint6_calibration_controller
-        - controllers/pitch_calibration_controller
-        - controllers/ore_bin_lifter_calibration_controller
-        - controllers/gimbal_lifter_calibration_controller
-        - controllers/extend_arm_a_calibration_controller
-        - controllers/extend_arm_b_calibration_controller
+#        - controllers/pitch_calibration_controller
+#        - controllers/ore_bin_lifter_calibration_controller
+#        - controllers/gimbal_lifter_calibration_controller
+#        - controllers/extend_arm_a_calibration_controller
+#        - controllers/extend_arm_b_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
         - controllers/arm_trajectory_controller
-        - controllers/ore_bin_lifter_controller
-        - controllers/gimbal_lifter_controller
-        - controllers/extend_arm_a_controller
-        - controllers/extend_arm_b_controller
+#        - controllers/ore_bin_lifter_controller
+#        - controllers/gimbal_lifter_controller
+#        - controllers/extend_arm_a_controller
+#        - controllers/extend_arm_b_controller
       services_name:
         - /controllers/joint1_calibration_controller/is_calibrated
-        - /controllers/joint2_calibration_controller/is_calibrated
         - /controllers/joint3_calibration_controller/is_calibrated
+        - /controllers/joint4_calibration_controller/is_calibrated
         - /controllers/joint5_calibration_controller/is_calibrated
         - /controllers/joint6_calibration_controller/is_calibrated
         - /controllers/joint7_calibration_controller/is_calibrated
-        - /controllers/pitch_calibration_controller/is_calibrated
-        - controllers/ore_bin_lifter_calibration_controller/is_calibrated
-        - controllers/gimbal_lifter_calibration_controller/is_calibrated
-        - controllers/extend_arm_a_calibration_controller/is_calibrated
-        - controllers/extend_arm_b_calibration_controller/is_calibrated
+#        - /controllers/pitch_calibration_controller/is_calibrated
+#        - controllers/ore_bin_lifter_calibration_controller/is_calibrated
+#        - controllers/gimbal_lifter_calibration_controller/is_calibrated
+#        - controllers/extend_arm_a_calibration_controller/is_calibrated
+#        - controllers/extend_arm_b_calibration_controller/is_calibrated
 
     - start_controllers:
-        - controllers/joint4_calibration_controller
+        - controllers/joint2_calibration_controller
       stop_controllers:
         - controllers/arm_trajectory_controller
       services_name:
-        - /controllers/joint4_calibration_controller/is_calibrated
+        - /controllers/joint2_calibration_controller/is_calibrated
