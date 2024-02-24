@@ -71,7 +71,7 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 2.0, i: 0.1, d: 0.05, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
+      pid: { p: 0.5, i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
     pitch:
       joint: "pitch_joint"
       pid: { p: 0., i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
@@ -190,10 +190,10 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint4_motor ]
     velocity:
-      search_velocity: -2.0
+      search_velocity: -2.5
       vel_threshold: 0.05
       joint: joint4
-      pid: { p: 0.6, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 0.7, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
 
   joint5_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -227,10 +227,10 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint7_motor ]
     velocity:
-      search_velocity: -2.0
+      search_velocity: -2.5
       vel_threshold: 0.01
       joint: joint7
-      pid: { p: 0.7, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.5, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
     return:
       joint: joint7
       pid: { p: 5, i: 0, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }

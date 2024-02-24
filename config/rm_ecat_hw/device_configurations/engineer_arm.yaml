@@ -49,6 +49,11 @@ can_motors:
     name: "yaw_joint_motor"
     type: "GM6020"
     need_calibration: false
+  - can_id: 7
+    can_bus: 0
+    name: "pitch_joint_motor"
+    type: "GM6020"
+    need_calibration: false
   - can_id: 1
     can_bus: 0
     name: "gimbal_lifter_joint_motor"
