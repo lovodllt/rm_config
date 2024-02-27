@@ -42,3 +42,9 @@ can_motors:
     name: "right_front_wheel_motor"
     type: "M3508"
     need_calibration: false
+    ################### gpio ###################
+gpios:
+   - name: "gripper"
+     pin: 0
+     mode: 1
+
