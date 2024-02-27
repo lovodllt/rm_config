@@ -167,6 +167,7 @@ rm_manual:
       - controllers/chassis_controller
       - controllers/gimbal_controller
       - controllers/gpio_controller
+      - controllers/mimic_joint1_controller
 #      - controllers/ore_bin_lifter_controller
 #      - controllers/ore_bin_rotate_controller
       - controllers/gimbal_lifter_controller
@@ -182,6 +183,7 @@ rm_manual:
       - controllers/joint5_calibration_controller
       - controllers/joint6_calibration_controller
       - controllers/joint7_calibration_controller
+      - controllers/mimic_joint1_calibration_controller
 #      - controllers/ore_bin_lifter_calibration_controller
       - controllers/gimbal_lifter_calibration_controller
 #      - controllers/extend_arm_a_calibration_controller
@@ -198,6 +200,7 @@ rm_manual:
 
   calibration_gather:
     - start_controllers:
+        - controllers/mimic_joint1_calibration_controller
         - controllers/joint1_calibration_controller
         - controllers/joint3_calibration_controller
         - controllers/joint4_calibration_controller
@@ -210,6 +213,7 @@ rm_manual:
 #        - controllers/extend_arm_a_calibration_controller
 #        - controllers/extend_arm_b_calibration_controller
       stop_controllers:
+        - controllers/mimic_joint1_controller
         - controllers/gimbal_controller
         - controllers/arm_trajectory_controller
 #        - controllers/ore_bin_lifter_controller
@@ -217,6 +221,7 @@ rm_manual:
 #        - controllers/extend_arm_a_controller
 #        - controllers/extend_arm_b_controller
       services_name:
+        - /controllers/mimic_joint1_calibration_controller/is_calibrated
         - /controllers/joint1_calibration_controller/is_calibrated
         - /controllers/joint3_calibration_controller/is_calibrated
         - /controllers/joint4_calibration_controller/is_calibrated
