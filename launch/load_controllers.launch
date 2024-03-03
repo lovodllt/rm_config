@@ -24,11 +24,17 @@
           controllers/shooter_controller
           controllers/scope_calibration_controller
           controllers/scope_controller
+          controllers/legged_balance_controller
+          controllers/four_link_vmc_controller
+          controllers/leg_lf_calibration_controller
+          controllers/leg_lb_calibration_controller
+          controllers/leg_rf_calibration_controller
+          controllers/leg_rb_calibration_controller
           "/>
 
     <group if="$(arg balance)">
-        <param name="taskFile" value="$(find rm_balance_control)/config/mpc/task.info"/>
-        <param name="libFolder" value="$(find rm_balance_control)/auto_generated"/>
+        <param name="taskFile" value="$(find rm_legged_balance_control)/config/mpc/task.info"/>
+        <param name="libFolder" value="$(find rm_legged_balance_control)/auto_generated"/>
     </group>
 
     <node if="$(arg ekf)" pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"
