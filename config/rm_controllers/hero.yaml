@@ -149,3 +149,4 @@ controllers:
     anti_block_threshold: 0.1
     forward_push_threshold: 0.2
     exit_push_threshold: 0.23
+    offset: 220.0
