@@ -11,25 +11,22 @@
           args="load
           controllers/joint_state_controller
           controllers/robot_state_controller
-          controllers/trigger_calibration_controller
-          controllers/cover_calibration_controller
-          controllers/gimbal_calibration_controller
-          controllers/anti_tip_bar_calibration_controller
-          controllers/anti_tip_bar_controller
-          controllers/balance_controller
-          controllers/yaw_calibration_controller
+          controllers/arm_trajectory_controller
           controllers/chassis_controller
-          controllers/orientation_controller
           controllers/gimbal_controller
-          controllers/shooter_controller
-          controllers/scope_calibration_controller
-          controllers/scope_controller
-          controllers/legged_balance_controller
-          controllers/four_link_vmc_controller
-          controllers/leg_lf_calibration_controller
-          controllers/leg_lb_calibration_controller
-          controllers/leg_rf_calibration_controller
-          controllers/leg_rb_calibration_controller
+          controllers/joint1_calibration_controller
+          controllers/joint2_calibration_controller
+          controllers/joint3_calibration_controller
+          controllers/joint4_calibration_controller
+          controllers/joint5_calibration_controller
+          controllers/joint6_calibration_controller
+          controllers/joint7_calibration_controller
+          controllers/ore_bin_rotate_controller
+          controllers/ore_bin_lifter_controller
+          controllers/ore_bin_lifter_calibration_controller
+          controllers/gimbal_lifter_controller
+          controllers/gimbal_lifter_calibration_controller
+
           "/>
 
     <group if="$(arg balance)">
