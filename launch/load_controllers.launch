@@ -26,11 +26,12 @@
           controllers/ore_bin_lifter_calibration_controller
           controllers/gimbal_lifter_controller
           controllers/gimbal_lifter_calibration_controller
+
           "/>
 
     <group if="$(arg balance)">
-        <param name="taskFile" value="$(find rm_balance_control)/config/mpc/task.info"/>
-        <param name="libFolder" value="$(find rm_balance_control)/auto_generated"/>
+        <param name="taskFile" value="$(find rm_legged_balance_control)/config/mpc/task.info"/>
+        <param name="libFolder" value="$(find rm_legged_balance_control)/auto_generated"/>
     </group>
 
     <node if="$(arg ekf)" pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"
