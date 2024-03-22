@@ -231,8 +231,8 @@ rm_manual:
         - /controllers/joint6_calibration_controller/is_calibrated
         - /controllers/joint7_calibration_controller/is_calibrated
 #        - /controllers/pitch_calibration_controller/is_calibrated
-        - controllers/ore_bin_lifter_calibration_controller/is_calibrated
-        - controllers/gimbal_lifter_calibration_controller/is_calibrated
+        - /controllers/ore_bin_lifter_calibration_controller/is_calibrated
+        - /controllers/gimbal_lifter_calibration_controller/is_calibrated
 #        - controllers/extend_arm_a_calibration_controller/is_calibrated
 #        - controllers/extend_arm_b_calibration_controller/is_calibrated
 
