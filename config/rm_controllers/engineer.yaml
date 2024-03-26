@@ -24,13 +24,22 @@ controllers:
       joint5: { p: 35.0, i: 0, d: 5.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint6: { p: 100.0, i: 0, d: 1.3, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint7: { p: 5., i: 0., d: 1.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    constraints:
+      joint1: { trajectory: 0.01, goal: 0.01 }
+      joint2: { trajectory: 0.01, goal: 0.01 }
+      joint3: { trajectory: 0.01, goal: 0.01 }
+      joint4: { trajectory: 0.01, goal: 0.015 }
+      joint5: { trajectory: 0.01, goal: 0.01 }
+      joint6: { trajectory: 0.01, goal: 0.01 }
+      joint7: { trajectory: 0.01, goal: 0.01 }
+
 
 
   mimic_joint1_controller:
     type: mimic_joint_controller/MimicJointController
     joint: mimic_joint1
     target_joint_name: joint1
-    pid: { p: 20000., i: 0., d: 400.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 1000., i: 0., d: 100.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
 
 
