@@ -28,7 +28,7 @@ controllers:
     type: rm_calibration_controllers/GpioCalibrationController
     actuator: [ yaw_joint_motor ]
     gpio: "yaw"
-    initial_gpio_state: false
+    initial_gpio_state: true
     velocity:
       search_velocity: 4.5
       slow_forward_velocity: 3.0
