@@ -44,5 +44,5 @@ can_imus:
     bias: [ -0.00204371, 0.00446239 ,0.005571865 ]
 gpios:
   - name: "yaw"
-    pin: 0
+    pin: 1
     mode: 0
