@@ -17,14 +17,14 @@ rm_referee:
         config: { type: "rectangle", start_position: [ 500, 240 ], end_position: [ 1420,840 ], width: 3 }
     time_change:
       - name: "bullet"
-        config: { type: "int_num", start_position: [ 195, 610 ], size: 30, width: 3 , delay: 0.4 }
+        config: { type: "int_num", start_position: [ 175, 610 ], size: 30, width: 3 , delay: 0.4 }
       - name: "capacitor"
         config: { type: "line", width: 5, delay: 0.5,
                   start_position: [ 610, 100 ], end_position: [ 1210, 100 ] }
       - name: "lane_line"
         config: { type: "line", width: 4, color: "cyan", delay: 0.15,
                   start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
-        data: { radius: 0.38, height: 0.5, camera_range: 1.0, surface_coefficient: 0.7 }
+        data: { radius: 0.235, height: 0.4, camera_range: 0.8, surface_coefficient: 0.55 }
         reference_frame: "pitch"
       - name: "rotation"
         config: { type: "arc", width: 4, delay: 0.15, color: "yellow",
