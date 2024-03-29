@@ -101,7 +101,7 @@ controllers:
         error_tolerance: 0.0
     pitch:
       joint: "pitch_joint"
-      pid: { p: 42.0, i: 10.0, d: 1.4, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
+      pid: { p: 32.0, i: 10.0, d: 2.2, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
     imu_name: "gimbal_imu"
     feedforward:
       gravity: 0.0
