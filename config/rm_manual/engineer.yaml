@@ -109,8 +109,8 @@ rm_manual:
     speed_scale: 0.8
 
     fast_speed_scale: 1.1
-    normal_speed_scale: 0.8
-    low_speed_scale: 0.2
+    normal_speed_scale: 0.6
+    low_speed_scale: 0.3
     exchange_speed_scale: 0.15
 
     fast_gyro_scale: 1.5
@@ -173,8 +173,8 @@ rm_manual:
       - controllers/ore_bin_lifter_controller
       - controllers/ore_bin_rotate_controller
       - controllers/gimbal_lifter_controller
-#      - controllers/extend_arm_a_controller
-#      - controllers/extend_arm_b_controller
+      - controllers/extend_arm_front_controller
+      - controllers/extend_arm_back_controller
 
     calibration_controllers:
 #      - controllers/pitch_calibration_controller
@@ -188,8 +188,8 @@ rm_manual:
       - controllers/mimic_joint1_calibration_controller
       - controllers/ore_bin_lifter_calibration_controller
       - controllers/gimbal_lifter_calibration_controller
-#      - controllers/extend_arm_a_calibration_controller
-#      - controllers/extend_arm_b_calibration_controller
+      - controllers/extend_arm_front_calibration_controller
+      - controllers/extend_arm_back_calibration_controller
 
 
   pitch_calibration:
@@ -212,16 +212,16 @@ rm_manual:
 #        - controllers/pitch_calibration_controller
         - controllers/ore_bin_lifter_calibration_controller
         - controllers/gimbal_lifter_calibration_controller
-#        - controllers/extend_arm_a_calibration_controller
-#        - controllers/extend_arm_b_calibration_controller
+#        - controllers/extend_arm_front_calibration_controller
+#        - controllers/extend_arm_back_calibration_controller
       stop_controllers:
         - controllers/mimic_joint1_controller
         - controllers/gimbal_controller
         - controllers/arm_trajectory_controller
         - controllers/ore_bin_lifter_controller
         - controllers/gimbal_lifter_controller
-#        - controllers/extend_arm_a_controller
-#        - controllers/extend_arm_b_controller
+#        - controllers/extend_arm_front_controller
+#        - controllers/extend_arm_back_controller
       services_name:
         - /controllers/mimic_joint1_calibration_controller/is_calibrated
         - /controllers/joint1_calibration_controller/is_calibrated
@@ -233,8 +233,8 @@ rm_manual:
 #        - /controllers/pitch_calibration_controller/is_calibrated
         - /controllers/ore_bin_lifter_calibration_controller/is_calibrated
         - /controllers/gimbal_lifter_calibration_controller/is_calibrated
-#        - controllers/extend_arm_a_calibration_controller/is_calibrated
-#        - controllers/extend_arm_b_calibration_controller/is_calibrated
+#        - /controllers/extend_arm_front_calibration_controller/is_calibrated
+#        - /controllers/extend_arm_back_calibration_controller/is_calibrated
 
     - start_controllers:
         - controllers/joint2_calibration_controller

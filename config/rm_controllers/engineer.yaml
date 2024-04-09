@@ -28,8 +28,8 @@ controllers:
       joint1: { trajectory: 0.01, goal: 0.01 }
       joint2: { trajectory: 0.01, goal: 0.01 }
       joint3: { trajectory: 0.01, goal: 0.01 }
-      joint4: { trajectory: 0.01, goal: 0.015 }
-      joint5: { trajectory: 0.01, goal: 0.01 }
+      joint4: { trajectory: 0.03, goal: 0.015 }
+      joint5: { trajectory: 0.03, goal: 0.01 }
       joint6: { trajectory: 0.01, goal: 0.01 }
       joint7: { trajectory: 0.01, goal: 0.01 }
 
@@ -126,16 +126,16 @@ controllers:
   gimbal_lifter_controller:
     type: effort_controllers/JointPositionController
     joint: gimbal_lifter_joint
-    pid: { p: 20000., i: 0., d: 1200, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+    pid: { p: 10000., i: 0., d: 1000, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
 
-  extend_arm_a_controller:
+  extend_arm_front_controller:
     type: effort_controllers/JointPositionController
-    joint: extend_arm_a_joint
+    joint: extend_arm_front_joint
     pid: { p: 3., i: 0.1, d: 0.05, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
 
-  extend_arm_b_controller:
+  extend_arm_back_controller:
     type: effort_controllers/JointPositionController
-    joint: extend_arm_b_joint
+    joint: extend_arm_back_joint
     pid: { p: 3., i: 0.1, d: 0.05, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
 
   ######################### Calibration Controllers ######################
@@ -157,23 +157,23 @@ controllers:
       joint: gimbal_lifter_joint
       pid: { p: 5, i: 0, d: 1, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
-  extend_arm_a_calibration_controller:
+  extend_arm_front_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
-    actuator: [ extend_arm_a_joint_motor ]
+    actuator: [ extend_arm_front_joint_motor ]
     velocity:
       search_velocity: -1.5
       vel_threshold: 0.01
-      joint: extend_arm_a_joint
-      pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      joint: extend_arm_front_joint
+      pid: { p: 0.6, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
-  extend_arm_b_calibration_controller:
+  extend_arm_back_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
-    actuator: [ extend_arm_b_joint_motor ]
+    actuator: [ extend_arm_back_joint_motor ]
     velocity:
       search_velocity: -1.5
       vel_threshold: 0.01
-      joint: extend_arm_b_joint
-      pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      joint: extend_arm_back_joint
+      pid: { p: 0.6, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   joint1_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -233,7 +233,7 @@ controllers:
       search_velocity: -2.5
       vel_threshold: 0.001
       joint: joint5
-      pid: { p: 5, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
     return:
       joint: joint5
       pid: { p: 5, i: 0, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
@@ -250,7 +250,7 @@ controllers:
       pid: { p: 1., i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
     return:
       joint: joint6
-      pid: { p: 10, i: 0, d: 1.0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
+      pid: { p: 7, i: 0, d: 1.0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
       target_position: 0.
     pos_threshold: 0.3
 
