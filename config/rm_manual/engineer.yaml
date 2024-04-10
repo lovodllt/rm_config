@@ -146,6 +146,7 @@ rm_manual:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 2.5
     max_pitch_vel: 1
+    gimbal_scale: 30
     track_timeout: 0.5
     target_cost_function:
       k_pos: 1.0

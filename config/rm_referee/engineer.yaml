@@ -11,8 +11,6 @@ rm_referee:
         config: { start_position: [ 50, 650 ], size: 15, width: 2, title: "gripper:" }
       - name: "servo_mode"
         config: { start_position: [ 50, 700 ], size: 15, width: 2, title: "mode:" }
-      - name: "drag"
-        config: { start_position: [ 50, 550 ], size: 15, width: 2, title: "drag" }
     fixed:
       - name: "ore_position"
         config: { type: "line", width: 2, color: "orange",
