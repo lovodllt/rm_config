@@ -198,15 +198,11 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint2_motor ]
     velocity:
-      search_velocity: -0.4
+      search_velocity: 0.4
       vel_threshold: 0.001
       joint: joint2
       pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
-    return:
-      joint: joint2
-      pid: { p: 3000, i: 0, d: 10, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true }
-      target_position: 0.
-    pos_threshold: 0.001
+
 
   joint3_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController

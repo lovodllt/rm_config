@@ -202,6 +202,7 @@ rm_manual:
 
   calibration_gather:
     - start_controllers:
+        - controllers/joint2_calibration_controller
         - controllers/mimic_joint1_calibration_controller
         - controllers/joint1_calibration_controller
         - controllers/joint3_calibration_controller
@@ -224,6 +225,7 @@ rm_manual:
       services_name:
         - /controllers/mimic_joint1_calibration_controller/is_calibrated
         - /controllers/joint1_calibration_controller/is_calibrated
+        - /controllers/joint2_calibration_controller/is_calibrated
         - /controllers/joint3_calibration_controller/is_calibrated
         - /controllers/joint4_calibration_controller/is_calibrated
         - /controllers/joint5_calibration_controller/is_calibrated
@@ -233,10 +235,3 @@ rm_manual:
         - /controllers/gimbal_lifter_calibration_controller/is_calibrated
         - /controllers/extend_arm_front_calibration_controller/is_calibrated
         - /controllers/extend_arm_back_calibration_controller/is_calibrated
-
-    - start_controllers:
-        - controllers/joint2_calibration_controller
-      stop_controllers:
-        - controllers/arm_trajectory_controller
-      services_name:
-        - /controllers/joint2_calibration_controller/is_calibrated
