@@ -39,7 +39,7 @@ controllers:
     type: mimic_joint_controller/MimicJointController
     joint: mimic_joint1
     target_joint_name: joint1
-    pid: { p: 1000., i: 0., d: 100.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 5000., i: 0., d: 200.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
 
 
