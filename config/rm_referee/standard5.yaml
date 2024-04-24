@@ -31,7 +31,6 @@ rm_referee:
         config: { type: "arc", width: 7, delay: 0.15, color: "yellow",
                   start_position: [ 960, 520 ], end_position: [ 320, 320 ] , start_angle: 60, end_angle: 120 }
         data: { scale: 50, gimbal_reference_frame: "yaw", chassis_reference_frame: "base_link" }
-
       - name: "target_distance"
         config: { type: "float_num", start_position: [ 190, 650 ], size: 25, width: 3 ,color: "yellow", delay: 0.4 }
     fixed:
@@ -53,12 +52,13 @@ rm_referee:
       - name: "mid"
         config: { type: "line", width: 2, color: "yellow",
                   start_position: [ 960, 400 ], end_position: [ 960, 540 ] }
+      - name: "target"
+        config: { type: "string", start_position: [ 30, 650 ], size: 25, width: 2, color: "pink", content: "target:" }
       - name: "bullet_string"
         config: { type: "string", start_position: [ 30, 600 ], size: 25, width: 2, color: "pink", content: "BULLET:" }
       - name: "max_bullet"
         config: { type: "string", start_position: [ 30, 560 ], size: 30, width: 3, color: "pink", content: "500/" }
-      - name: "target"
-        config: { type: "string", start_position: [ 30, 650 ], size: 25, width: 2, color: "pink", content: "target:" }
+
     flash:
       - name: "cover"
         config: { start_position: [ 830, 700 ], size: 25, width: 2,
