@@ -137,4 +137,4 @@ controllers:
   image_transmission_controller:
     type: effort_controllers/JointPositionController
     joint: "image_transmission_joint"
-    pid: { p: 1.0, i: 6.0, d: 0.011, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
+    pid: { p: 0.5, i: 1.5, d: 0.009, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
