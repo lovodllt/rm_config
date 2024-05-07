@@ -116,7 +116,7 @@ controllers:
   ore_bin_lifter_controller:
     type: effort_controllers/JointPositionController
     joint: ore_bin_lifter_joint
-    pid: { p: 100000., i: 0., d: 5000, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: false }
+    pid: { p: 60000., i: 0., d: 5000, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: false }
 
   ore_bin_rotate_controller:
     type: effort_controllers/JointPositionController
@@ -146,7 +146,7 @@ controllers:
       search_velocity: -1.5
       vel_threshold: 0.01
       joint: ore_bin_lifter_joint
-      pid: { p: 10., i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: false }
+      pid: { p: 15., i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: false }
 
   gimbal_lifter_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
