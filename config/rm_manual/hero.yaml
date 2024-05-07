@@ -77,7 +77,7 @@ rm_manual:
     camera2_name: "galaxy_camera"
   scope:
     topic: "/controllers/scope_controller/command"
-    on_pos: 2.284875
+    on_pos: 2.2774
     off_pos: 0.1
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
