@@ -109,6 +109,14 @@ rm_manual:
       services_name:
         - /controllers/pitch_calibration_controller/is_calibrated
 
+  ore_bin_lifter_calibration:
+    - start_controllers:
+        - controllers/ore_bin_lifter_calibration_controller
+      stop_controllers:
+        - controllers/ore_bin_lifter_controller
+      services_name:
+        - /controllers/ore_bin_lifter_calibration_controller/is_calibrated
+
   calibration_gather:
     - start_controllers:
         - controllers/joint2_calibration_controller
