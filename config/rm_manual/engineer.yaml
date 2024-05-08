@@ -89,6 +89,7 @@ rm_manual:
     calibration_controllers:
       - controllers/joint1_calibration_controller
       - controllers/joint2_calibration_controller
+      - controllers/joint2_home_calibration_controller
       - controllers/joint3_calibration_controller
       - controllers/joint4_calibration_controller
       - controllers/joint5_calibration_controller
@@ -116,6 +117,15 @@ rm_manual:
         - controllers/ore_bin_lifter_controller
       services_name:
         - /controllers/ore_bin_lifter_calibration_controller/is_calibrated
+
+  joint2_calibration:
+    - start_controllers:
+        - controllers/joint2_home_calibration_controller
+      stop_controllers:
+        - controllers/arm_trajectory_controller
+      services_name:
+        - /controllers/joint2_home_calibration_controller/is_calibrated
+
 
   calibration_gather:
     - start_controllers:
