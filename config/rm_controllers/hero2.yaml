@@ -98,8 +98,8 @@ controllers:
       k_v: 1.0
     pitch:
       joint: "pitch_joint"
-      pid: { p: 1.6, i: 15.0, d: 0.0, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
-      pid_pos: { p: 20.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 1.3, i: 30.0, d: 0.0, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      pid_pos: { p: 17.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
       k_v: 1.0
     delay: 0.0
     chassis_vel:
