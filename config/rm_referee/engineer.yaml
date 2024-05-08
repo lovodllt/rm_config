@@ -1,9 +1,10 @@
 rm_referee:
   robot_type: engineer
-  send_ui_queue_delay: 0.15
+  send_ui_queue_delay: 0.05
   add_ui_frequency: 0.5
-  add_ui_max_times: 5
+  add_ui_max_times: 3
   dbus_topic: "/dbus_data"
+  interactive_data:
   ui:
     trigger_change:
       - name: "stone"
