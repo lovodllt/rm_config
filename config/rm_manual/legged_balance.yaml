@@ -1,7 +1,7 @@
 rm_manual:
   robot_type: "legged_balance"
   chassis_calibrate_motor: [ "left_front_leg_joint_motor", "right_front_leg_joint_motor", "left_back_leg_joint_motor", "right_back_leg_joint_motor" ]
-  gimbal_calibrate_motor: [ ]
+  gimbal_calibrate_motor: [ "pitch_joint_motor" ]
   shooter_calibrate_motor: [ ]
   flank_frame: "flank_frame"
   reverse_frame: "yaw_reverse_frame"
@@ -14,7 +14,10 @@ rm_manual:
       - [ 60.0,4.0 ]
     accel_z:
       - [ 60.0,4.8 ]
-    safety_power: 2000
+      - [ 80.0,5.0 ]
+      - [ 100.0,7.0 ]
+      - [ 150.0,8.0 ]
+    safety_power: 60
     capacitor_threshold: 0.2
     charge_power: 2000
     extra_power: 120
@@ -29,13 +32,18 @@ rm_manual:
     power_limit_topic: "/cmd_chassis"
     max_linear_x:
       - [ 60.0,1.20 ]
+      - [ 80.0,1.45 ]
+      - [ 100.0,1.70 ]
+      - [ 220.0,2.00 ]
     max_linear_y:
-      - [ 60.0,1.0 ]
-      - [ 80.0,1.3 ]
-      - [ 100.0,1.6 ]
-      - [ 180.0,2.0 ]
+      - [ 60.0,1.20 ]
+      - [ 80.0,1.45 ]
+      - [ 100.0,1.70 ]
+      - [ 220.0,2.00 ]
     max_angular_z:
       - [ 60.0,6.5 ]
+      - [ 80.0,7.5 ]
+      - [ 180.0,8.0 ]
     gyro_move_reduction: 0.5
     gyro_rotate_reduction: 1.0
   gimbal:
@@ -86,11 +94,16 @@ rm_manual:
       - controllers/robot_state_controller
     main_controllers:
       - controllers/legged_balance_controller
+      - controllers/orientation_controller
+      - controllers/gimbal_controller
+      - controllers/shooter_controller
     calibration_controllers:
       - controllers/leg_lf_calibration_controller
       - controllers/leg_lb_calibration_controller
       - controllers/leg_rf_calibration_controller
       - controllers/leg_rb_calibration_controller
+      - controllers/gimbal_calibration_controller
+      - controllers/trigger_calibration_controller
 
   chassis_calibration:
     - start_controllers:
@@ -99,14 +112,26 @@ rm_manual:
         - controllers/leg_rf_calibration_controller
         - controllers/leg_rb_calibration_controller
       stop_controllers:
-        - controllers/legged_balance_controller
+        - ""
       services_name:
         - /controllers/leg_lf_calibration_controller/is_calibrated
         - /controllers/leg_lb_calibration_controller/is_calibrated
         - /controllers/leg_rf_calibration_controller/is_calibrated
         - /controllers/leg_rb_calibration_controller/is_calibrated
   gimbal_calibration:
+    - start_controllers:
+        - controllers/gimbal_calibration_controller
+      stop_controllers:
+        - controllers/gimbal_controller
+      services_name:
+        - /controllers/gimbal_calibration_controller/is_calibrated
   shooter_calibration:
+    - start_controllers:
+        - controllers/trigger_calibration_controller
+      stop_controllers:
+        - controllers/shooter_controller
+      services_name:
+        - /controllers/trigger_calibration_controller/is_calibrated
 
 #controllers:
 #  cover_controller:
