@@ -10,40 +10,40 @@ rm_hw:
   # Configurations of the actuators
   actuators:
     right_front_leg_joint_motor:
-      bus: can3
+      bus: can0
       id: 0x02
       type: cheetah
-      master_id: 0x12
+      master_id: 0x00C
       lp_cutoff_frequency: 50
       need_calibration: true
     left_front_leg_joint_motor:
       bus: can1
       id: 0x03
       type: cheetah
-      master_id: 0x13
+      master_id: 0x00D
       lp_cutoff_frequency: 50
       need_calibration: true
     left_back_leg_joint_motor:
       bus: can1
       id: 0x01
       type: cheetah
-      master_id: 0x11
+      master_id: 0x00B
       lp_cutoff_frequency: 50
       need_calibration: true
     right_back_leg_joint_motor:
-      bus: can3
+      bus: can0
       id: 0x04
       type: cheetah
-      master_id: 0x14
+      master_id: 0x00E
       lp_cutoff_frequency: 50
       need_calibration: true
     left_wheel_joint_motor:
-      bus: can0
+      bus: can3
       id: 0x203
       type: rm_3508
       lp_cutoff_frequency: 60
     right_wheel_joint_motor:
-      bus: can0
+      bus: can3
       id: 0x202
       type: rm_3508
       lp_cutoff_frequency: 60
@@ -54,12 +54,12 @@ rm_hw:
   #      lp_cutoff_frequency: 60
   #      need_calibration: true
     yaw_joint_motor:
-        bus: can0
+        bus: can3
         id: 0x205
         type: rm_6020
         lp_cutoff_frequency: 60
     trigger_joint_motor:
-        bus: can0
+        bus: can3
         id: 0x201
         type: rm_3508
         lp_cutoff_frequency: 60
@@ -80,16 +80,16 @@ rm_hw:
         bus: can2
         id: 0x201
         type: rm_3508
-        lp_cutoff_frequency: 30
+        lp_cutoff_frequency: 50
     right_friction_wheel_joint_motor:
         bus: can2
         id: 0x202
         type: rm_3508
-        lp_cutoff_frequency: 30
+        lp_cutoff_frequency: 50
   imus:
     base_imu:
       frame_id: base_imu
-      bus: can0
+      bus: can3
       id: 0x100
       orientation_covariance_diagonal: [ 0.0012, 0.0012, 0.0012 ]
       angular_velocity_covariance: [ 0.0004, 0.0004, 0.0004 ]
