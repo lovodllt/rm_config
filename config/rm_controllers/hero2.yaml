@@ -124,8 +124,6 @@ controllers:
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
-      ban_shoot_duration: 0.04
-      gimbal_switch_duration: 0.1
       max_track_target_vel: 1.0
 
   shooter_controller:
