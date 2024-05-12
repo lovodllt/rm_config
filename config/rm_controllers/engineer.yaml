@@ -18,19 +18,19 @@ controllers:
       - joint7
     gains:
       joint1: { p: 10000.0, i: 0, d: 300.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
-      joint2: { p: 20000, i: 0, d: 1000.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint2: { p: 25000, i: 0, d: 1000.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
       joint3: { p: 9000.0, i: 0, d: 220.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
       joint4: { p: 100.0, i: 0.0, d: 1.5, i_clamp_max: 0, i_clamp_min: 0.0, antiwindup: true, publish_state: false }
-      joint5: { p: 30.0, i: 0, d: 1.8, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint5: { p: 40.0, i: 0, d: 1.9, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
       joint6: { p: 100.0, i: 0, d: 1.3, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
       joint7: { p: 4.5, i: 0., d: 0.8, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: false }
     constraints:
-      joint1: { trajectory: 0.02, goal: 0.01 }
-      joint2: { trajectory: 0.01, goal: 0.01 }
-      joint3: { trajectory: 0.01, goal: 0.01 }
+      joint1: { trajectory: 0.03, goal: 0.01 }
+      joint2: { trajectory: 0.03, goal: 0.01 }
+      joint3: { trajectory: 0.03, goal: 0.01 }
       joint4: { trajectory: 0.03, goal: 0.015 }
-      joint5: { trajectory: 0.03, goal: 0.01 }
-      joint6: { trajectory: 0.01, goal: 0.01 }
+      joint5: { trajectory: 0.05, goal: 0.03 }
+      joint6: { trajectory: 0.03, goal: 0.01 }
       joint7: { trajectory: 0.05, goal: 0.01 }
 
 
@@ -88,7 +88,7 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 0.5, i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: false }
+      pid: { p: 2.0, i: 0.1, d: 0.05, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: false }
     pitch:
       joint: "pitch_joint"
       pid: { p: 0., i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: false }

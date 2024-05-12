@@ -1,4 +1,5 @@
 rm_manual:
+  dbus_topic: "/rm_ecat_hw/dbus"
   robot_type: "engineer"
   chassis:
     topic: "/cmd_chassis"
@@ -89,7 +90,6 @@ rm_manual:
     calibration_controllers:
       - controllers/joint1_calibration_controller
       - controllers/joint2_calibration_controller
-      - controllers/joint2_home_calibration_controller
       - controllers/joint3_calibration_controller
       - controllers/joint4_calibration_controller
       - controllers/joint5_calibration_controller
@@ -120,11 +120,11 @@ rm_manual:
 
   joint2_calibration:
     - start_controllers:
-        - controllers/joint2_home_calibration_controller
+        - controllers/joint2_calibration_controller
       stop_controllers:
         - controllers/arm_trajectory_controller
       services_name:
-        - /controllers/joint2_home_calibration_controller/is_calibrated
+        - /controllers/joint2_calibration_controller/is_calibrated
 
 
   calibration_gather:
