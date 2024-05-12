@@ -1,5 +1,6 @@
 rm_manual:
   robot_type: "hero"
+  dbus_topic: "/rm_ecat_hw/dbus"
   chassis_calibrate_motor: [ ]
   gimbal_calibrate_motor: [ "scope_joint_motor", "image_transmission_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
@@ -70,14 +71,18 @@ rm_manual:
       safe_shoot_frequency: 1
       heat_coeff: 3.5
       type: "ID1_42MM"
+  camera:
+    topic: "/camera_name"
+    camera1_name: "hk_camera"
+    camera2_name: "galaxy_camera"
   scope:
     topic: "/controllers/scope_controller/command"
-    on_pos: 2.32
+    on_pos: 2.2774
     off_pos: 0.1
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
-    on_pos: -0.69
-    off_pos: -0.23
+    on_pos: -0.671884
+    off_pos: -0.327505
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -132,4 +137,4 @@ controllers:
   image_transmission_controller:
     type: effort_controllers/JointPositionController
     joint: "image_transmission_joint"
-    pid: { p: 1.0, i: 0.0, d: 0.0055, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 0.5, i: 1.0, d: 0.008, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }

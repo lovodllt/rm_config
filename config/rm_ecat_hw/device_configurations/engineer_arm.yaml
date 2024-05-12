@@ -6,7 +6,7 @@ can_motors:
     name: "joint1_motor"
     type: "M3508"
     need_calibration: true
-  - can_id: 2
+  - can_id: 5
     can_bus: 0
     name: "mimic_joint1_motor"
     type: "M3508"
@@ -60,3 +60,14 @@ can_motors:
     type: "M2006"
     need_calibration: true
 
+  ################# extend arm ##################
+  - can_id: 2
+    can_bus: 0
+    name: "extend_arm_front_joint_motor"
+    type: "M2006"
+    need_calibration: true
+  - can_id: 4
+    can_bus: 0
+    name: "extend_arm_back_joint_motor"
+    type: "M2006"
+    need_calibration: true

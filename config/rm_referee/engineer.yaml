@@ -1,8 +1,10 @@
 rm_referee:
   robot_type: engineer
-  send_ui_queue_delay: 0.15
-  add_ui_frequency: 5
-  add_ui_max_times: 20
+  send_ui_queue_delay: 0.05
+  add_ui_frequency: 0.5
+  add_ui_max_times: 3
+  dbus_topic: "/dbus_data"
+  interactive_data:
   ui:
     trigger_change:
       - name: "stone"
@@ -11,12 +13,13 @@ rm_referee:
         config: { start_position: [ 50, 650 ], size: 15, width: 2, title: "gripper:" }
       - name: "servo_mode"
         config: { start_position: [ 50, 700 ], size: 15, width: 2, title: "mode:" }
-      - name: "drag"
-        config: { start_position: [ 50, 550 ], size: 15, width: 2, title: "drag" }
     fixed:
-      - name: "ore_position"
+      - name: "car_line_left"
         config: { type: "line", width: 2, color: "orange",
-                  start_position: [ 440, 625 ], end_position: [ 1460, 625 ] }
+                  start_position: [ 887, 456 ], end_position: [ 626, 230 ] }
+      - name: "car_line_right"
+        config: { type: "line", width: 2, color: "orange",
+                  start_position: [ 1047, 457 ], end_position: [ 1245, 245 ] }
     flash:
     time_change:
       - name: "engineer_joint1"
