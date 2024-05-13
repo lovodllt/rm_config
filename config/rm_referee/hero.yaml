@@ -13,7 +13,7 @@ rm_referee:
       - name: "target"
         config: { start_position: [ 200, 750 ], size: 15, width: 2, title: "target: " }
       - name: "target_view_angle"
-        config: { type: "rectangle", start_position: [ 840, 341 ], end_position: [ 1042,503 ], width: 3, color: "yellow" }
+        config: { type: "rectangle", start_position: [ 731, 426 ], end_position: [ 1149,755 ], width: 3, color: "yellow" }
     time_change:
       - name: "bullet"
         config: { type: "int_num", start_position: [ 170, 560 ], size: 30, width: 3 , delay: 0.4 }
