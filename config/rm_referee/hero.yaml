@@ -49,12 +49,15 @@ rm_referee:
       - name: "outpose_mid"
         config: { type: "line", width: 3, color: "purple",
                   start_position: [ 941, 397 ], end_position: [ 941, 423 ] }
-      #      - name: "base_up"
-      #        config: { type: "line", width: 3, color: "purple",
-      #                  start_position: [ 890, 614 ], end_position: [ 1030, 614 ] }
-      #      - name: "base_down"
-      #        config: { type: "line", width: 3, color: "purple",
-      #                  start_position: [ 890, 586 ], end_position: [ 1030, 586 ] }
+      - name: "base_up"
+        config: { type: "line", width: 3, color: "blue",
+                  start_position: [ 1061, 180 ], end_position: [ 1125, 180 ] }
+      - name: "base_mid"
+        config: { type: "line", width: 3, color: "blue",
+                  start_position: [ 1095, 160 ], end_position: [ 1095, 260 ] }
+      - name: "base_down"
+        config: { type: "line", width: 3, color: "blue",
+                  start_position: [ 1061, 205  ], end_position: [ 1125, 205 ] }
       #      - name: "ring_highland_up"
       #        config: { type: "line", width: 3, color: "yellow",
       #                  start_position: [ 874, 681 ], end_position: [ 1046, 681 ] }
