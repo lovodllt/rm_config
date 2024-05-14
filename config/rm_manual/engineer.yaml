@@ -58,6 +58,7 @@ rm_manual:
     max_pitch_vel: 1
     gimbal_scale: 30
     track_timeout: 0.5
+    finish_turning_threshold: 2.9
     target_cost_function:
       k_pos: 1.0
       k_vel: 1.0
