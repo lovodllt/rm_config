@@ -20,6 +20,12 @@ rm_referee:
       - name: "car_line_right"
         config: { type: "line", width: 2, color: "orange",
                   start_position: [ 1047, 457 ], end_position: [ 1245, 245 ] }
+      - name: "ore_line_mid"
+        config: { type: "line", width: 3, color: "orange",
+                  start_position: [ 859, 179 ], end_position: [ 1063, 86 ] }
+      - name: "ore_line_side"
+        config: { type: "line", width: 3, color: "orange",
+                  start_position: [ 874, 193 ], end_position: [ 1037, 94 ] }
     flash:
     time_change:
       - name: "engineer_joint1"
