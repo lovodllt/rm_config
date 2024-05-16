@@ -30,13 +30,13 @@ rm_referee:
     time_change:
       - name: "engineer_joint1"
         config: { type: "line", width: 5, delay: 0.2,
-                  start_position: [ 850, 100 ], end_position: [ 850, 300 ] }
+                  start_position: [ 1440, 100 ], end_position: [ 1440, 300 ] }
         data: { line_length: 100.,  min_val: 0.0025, max_val: 0.475 ,direction: vertical }
       - name: "engineer_joint2"
         config: { type: "line", width: 5, delay: 0.2,
-                  start_position: [ 850, 100 ], end_position: [ 950, 200 ] }
+                  start_position: [ 1440, 100 ], end_position: [ 1540, 200 ] }
         data: { line_length: 80., min_val: -0.01 , max_val: 0.232 ,direction: slant }
       - name: "engineer_joint3"
         config: { type: "line", width: 5, delay: 0.2,
-                  start_position: [ 850, 100 ], end_position: [ 1100, 100 ] }
+                  start_position: [ 1440, 100 ], end_position: [ 1690, 100 ] }
         data: { line_length: 100., min_val: 0.29 , max_val: -0.280 ,direction: horizontal }
