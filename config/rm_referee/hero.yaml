@@ -4,9 +4,7 @@ rm_referee:
   add_ui_frequency: 0.5
   add_ui_max_times: 3
   dbus_topic: "/rm_ecat_hw/dbus"
-
   interactive_data:
-
   ui:
     trigger_change:
       - name: "chassis"
@@ -16,7 +14,7 @@ rm_referee:
       - name: "target"
         config: { start_position: [ 200, 750 ], size: 15, width: 2, title: "target: " }
       - name: "target_view_angle"
-        config: { type: "rectangle", start_position: [ 776, 518 ], end_position: [ 1118,767 ], width: 3 }
+        config: { type: "rectangle", start_position: [ 731, 426 ], end_position: [ 1149,755 ], width: 3, color: "yellow" }
       - name: "friction_speed"
         config: { type: "float_num", start_position: [ 190, 650 ], size: 20, width: 2 ,color: "yellow" }
     time_change:
@@ -28,7 +26,7 @@ rm_referee:
       - name: "pitch"
         config: { type: "string", start_position: [ 775, 220 ], size: 25, width: 4, delay: 0.6, title: "pitch: " }
       - name: "lane_line"
-        config: { type: "line", width: 4, color: "cyan", delay: 0.085,
+        config: { type: "line", width: 4, color: "cyan", delay: 0.08,
                   start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
         data: { radius: 0.48, height: 0.62, camera_range: 1.0, surface_coefficient: 1.0 }
         reference_frame: "pitch"
@@ -37,7 +35,7 @@ rm_referee:
                   start_position: [ 960, 520 ], end_position: [ 320, 320 ] , start_angle: 60, end_angle: 120 }
         data: { scale: 50, gimbal_reference_frame: "yaw", chassis_reference_frame: "base_link" }
       - name: "target_distance"
-        config: { type: "float_num", start_position: [ 190, 650 ], size: 25, width: 3 ,color: "yellow", delay: 0.3 }
+        config: { type: "float_num", start_position: [ 190, 650 ], size: 25, width: 3 ,color: "yellow", delay: 0.45 }
     fixed:
       - name: "capacity_boundary_l"
         config: { type: "line", width: 2, color: "green",
@@ -45,27 +43,24 @@ rm_referee:
       - name: "capacity_boundary_r"
         config: { type: "line", width: 2, color: "green",
                   start_position: [ 1210, 110 ], end_position: [ 1210, 90 ] }
+      - name: "outpose_base_up"
+        config: { type: "line", width: 3, color: "purple",
+                  start_position: [ 904, 423 ], end_position: [ 977, 423 ] }
+      - name: "outpose_base_down"
+        config: { type: "line", width: 3, color: "purple",
+                  start_position: [ 904, 397 ], end_position: [ 977, 397 ] }
+      - name: "outpose_mid"
+        config: { type: "line", width: 3, color: "purple",
+                  start_position: [ 941, 397 ], end_position: [ 941, 423 ] }
       - name: "base_up"
-        config: { type: "line", width: 3, color: "purple",
-                  start_position: [ 944, 368 ], end_position: [ 944, 268 ] }
-      - name: "sort_up"
-        config: { type: "line", width: 3, color: "yellow",
-                  start_position: [ 929, 575 ], end_position: [ 929, 475 ] }
-      - name: "sort_down"
-        config: { type: "line", width: 3, color: "yellow",
-                  start_position: [ 879, 525 ], end_position: [ 979, 525 ] }
+        config: { type: "line", width: 3, color: "blue",
+                  start_position: [ 1061, 180 ], end_position: [ 1125, 180 ] }
+      - name: "base_mid"
+        config: { type: "line", width: 3, color: "blue",
+                  start_position: [ 1095, 160 ], end_position: [ 1095, 260 ] }
       - name: "base_down"
-        config: { type: "line", width: 3, color: "purple",
-                  start_position: [ 1004,318 ], end_position: [ 884,318 ] }
-      - name: "base_down_1"
-        config: { type: "line", width: 3, color: "purple",
-                  start_position: [ 1004,318 ], end_position: [ 884,318 ] }
-      #      - name: "base_up"
-      #        config: { type: "line", width: 3, color: "purple",
-      #                  start_position: [ 890, 614 ], end_position: [ 1030, 614 ] }
-      #      - name: "base_down"
-      #        config: { type: "line", width: 3, color: "purple",
-      #                  start_position: [ 890, 586 ], end_position: [ 1030, 586 ] }
+        config: { type: "line", width: 3, color: "blue",
+                  start_position: [ 1061, 205  ], end_position: [ 1125, 205 ] }
       #      - name: "ring_highland_up"
       #        config: { type: "line", width: 3, color: "yellow",
       #                  start_position: [ 874, 681 ], end_position: [ 1046, 681 ] }
@@ -98,13 +93,13 @@ rm_referee:
       - name: "ore"
         config: { start_position: [ 960, 720 ], size: 15, width: 2,
                   color: "yellow", content: "Ore will released after 10s", delay: 0.4 }
-      #      - name: "armor0"
-      #        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
-      #      - name: "armor1"
-      #        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
-      #      - name: "armor2"
-      #        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
-      #      - name: "armor3"
-      #        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
+#      - name: "armor0"
+#        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
+#      - name: "armor1"
+#        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
+#      - name: "armor2"
+#        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
+#      - name: "armor3"
+#        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
       - name: "hero_hit"
         config: { type: "circle", width: 2, radius: 10, start_position: [ 960, 540 ], color: "pink", delay: 0.5 }
