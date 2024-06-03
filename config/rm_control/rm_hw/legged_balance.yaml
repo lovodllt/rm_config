@@ -10,28 +10,28 @@ rm_hw:
   # Configurations of the actuators
   actuators:
     right_front_leg_joint_motor:
-      bus: can1
+      bus: can3
       id: 0x01
       type: cheetah
       master_id: 0x00B
       lp_cutoff_frequency: 50
       need_calibration: true
     left_front_leg_joint_motor:
-      bus: can3
+      bus: can1
       id: 0x04
       type: cheetah
       master_id: 0x00E
       lp_cutoff_frequency: 50
       need_calibration: true
     left_back_leg_joint_motor:
-      bus: can3
+      bus: can1
       id: 0x03
       type: cheetah
       master_id: 0x00D
       lp_cutoff_frequency: 50
       need_calibration: true
     right_back_leg_joint_motor:
-      bus: can1
+      bus: can3
       id: 0x02
       type: cheetah
       master_id: 0x00C
