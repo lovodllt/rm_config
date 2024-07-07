@@ -60,9 +60,10 @@ rm_manual:
     speed_16m_per_speed: 15.4
     speed_18m_per_speed: 18.0
     speed_30m_per_speed: 30.0
-    wheel_speed_10: 525.0
-    wheel_speed_16: 525.0
+    wheel_speed_10: 535.0
+    wheel_speed_16: 535.0
     extra_wheel_speed_once: 5.0
+    auto_wheel_speed: true
     heat_limit:
       low_shoot_frequency: 1
       high_shoot_frequency: 3
@@ -77,11 +78,11 @@ rm_manual:
     camera2_name: "galaxy_camera"
   scope:
     topic: "/controllers/scope_controller/command"
-    on_pos: 2.2774
+    on_pos: 2.16895
     off_pos: 0.1
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
-    on_pos: -0.69
+    on_pos: -1.6
     off_pos: -0.327505
   detection_switch:
     fail_limit: 10
@@ -137,4 +138,4 @@ controllers:
   image_transmission_controller:
     type: effort_controllers/JointPositionController
     joint: "image_transmission_joint"
-    pid: { p: 0.5, i: 1.1, d: 0.008, i_clamp_max: 0.0512, i_clamp_min: -0.0512, antiwindup: true, publish_state: true }
+    pid: { p: 0.6, i: 0.5, d: 0.0065, i_clamp_max: 0.0512, i_clamp_min: -0.0512, antiwindup: true, publish_state: true }
