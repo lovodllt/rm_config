@@ -99,27 +99,90 @@ controllers:
     type: gpio_controller/Controller
     gpios: [ "gripper" ]
 
+  middle_pitch_controller:
+    type: effort_controllers/JointPositionController
+    joint: middle_pitch_joint
+    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+  ######################## Silver Ore Controllers ########################
 
+  silver_lifter_controller:
+    type: effort_controllers/JointPositionController
+    joint: silver_lifter_joint
+    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+
+  silver_pusher_controller:
+    type: effort_controllers/JointPositionController
+    joint: silver_pusher_joint
+    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+
+  silver_rotator_controller:
+    type: effort_controllers/JointPositionController
+    joint: silver_rotator_joint
+    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+
+  ######################### Gold  Ore Controllers ########################
+
+  gold_lifter_controller:
+    type: effort_controllers/JointPositionController
+    joint: gold_lifter_joint
+    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+
+  gold_pusher_controller:
+    type: effort_controllers/JointPositionController
+    joint: gold_pusher_joint
+    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
 
   ######################### Calibration Controllers ######################
-
-
-  gimbal_lifter_calibration_controller:
-    type: rm_calibration_controllers/MechanicalCalibrationController
-    actuator: [ gimbal_lifter_joint_motor ]
-    velocity:
-      search_velocity: -1.5
-      vel_threshold: 0.01
-      joint: gimbal_lifter_joint
-      pid: { p: 5, i: 0, d: 1, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: false }
-
-
-
   joint1_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint1_motor ]
     velocity:
-      search_velocity: -0.6
+      search_velocity: 0.4
       vel_threshold: 0.001
       joint: joint1
-      pid: { p: 100, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: false }
+      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+
+  silver_lifter_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ silver_lifter_joint_motor ]
+    velocity:
+      search_velocity: 0.4
+      vel_threshold: 0.001
+      joint: silver_lifter_joint_motor
+      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+
+  silver_pusher_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ silver_pusher_joint_motor ]
+    velocity:
+      search_velocity: 0.4
+      vel_threshold: 0.001
+      joint: silver_pusher_joint
+      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+
+  silver_rotator_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ silver_rotator_joint_motor ]
+    velocity:
+      search_velocity: 0.4
+      vel_threshold: 0.001
+      joint: silver_rotator_joint
+      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+
+  gold_pusher_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ gold_pusher_joint_motor ]
+    velocity:
+      search_velocity: 0.4
+      vel_threshold: 0.001
+      joint: gold_pusher_joint_motor
+      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+
+  gold_lifter_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ gold_lifter_joint_motor ]
+    velocity:
+      search_velocity: 0.4
+      vel_threshold: 0.001
+      joint: gold_lifter_joint_motor
+      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
