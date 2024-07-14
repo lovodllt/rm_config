@@ -78,12 +78,12 @@ rm_manual:
     camera2_name: "galaxy_camera"
   scope:
     topic: "/controllers/scope_controller/command"
-    on_pos: 1.92
-    off_pos: 0.98067
+    on_pos: 1.85
+    off_pos: 0.01
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
-    on_pos: -0.74
-    off_pos: -0.38
+    on_pos: -0.7
+    off_pos: -0.3
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
