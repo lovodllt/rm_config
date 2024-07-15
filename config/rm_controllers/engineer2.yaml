@@ -16,12 +16,12 @@ controllers:
       - joint5
       - joint6
     gains:
-      joint1: { p: 10000.0, i: 0.5, d: 300.0, i_clamp_max: 2, i_clamp_min: -2, antiwindup: true, publish_state: false }
-      joint2: { p: 17000, i: 0.5, d: 1000.0, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
-      joint3: { p: 9000.0, i: 0.5, d: 220.0, i_clamp_max: 2, i_clamp_min: -2, antiwindup: true, publish_state: false }
-      joint4: { p: 250.0, i: 0.5, d: 2, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
-      joint5: { p: 50.0, i: 0.5, d: 2.0, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
-      joint6: { p: 150.0, i: 0.5, d: 1.4, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
+      joint1: { p: 17000.0, i: 0.0, d: 700.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint2: { p: 20, i: 0.0, d: 1.7, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint3: { p: 30.0, i: 0.0, d: 1.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint4: { p: 15.0, i: 0.0, d: 1, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint5: { p: 20.0, i: 0.0, d: 1.2, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint6: { p: 10.0, i: 0.0, d: 1.2, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
 #    constraints:
 #      joint1: { trajectory: 0.03, goal: 0.01 }
 #      joint2: { trajectory: 0.03, goal: 0.01 }
@@ -76,9 +76,14 @@ controllers:
     yaw:
       joint: "yaw_joint"
       pid: { p: 0.5, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: false }
+      pid_pos: { p: 15.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      k_chassis_vel: 0.035
+      k_v: 1.0
     pitch:
       joint: "pitch_joint"
       pid: { p: 0., i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: false }
+      pid_pos: { p: 17.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      k_v: 1.0
     feedforward:
       gravity: 0.0
       enable_gravity_compensation: false
@@ -97,12 +102,12 @@ controllers:
 
   gpio_controller:
     type: gpio_controller/Controller
-    gpios: [ "gripper" ]
+    gpios: [ "main_gripper", "silver_gripper1", "silver_gripper2", "silver_gripper3", "gold_gripper" ]
 
   middle_pitch_controller:
     type: effort_controllers/JointPositionController
     joint: middle_pitch_joint
-    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+    pid: { p: 50., i: 1., d: 1, i_max: 2., i_min: -2., antiwindup: true, publish_state: true }
   ######################## Silver Ore Controllers ########################
 
   silver_lifter_controller:
