@@ -48,6 +48,6 @@ gpios:
   - name: "gold_gripper"
     pin: 4
     mode: 1
-  - name: "silver_gripper"
+  - name: "silver_pump"
     pin: 5
     mode: 1
