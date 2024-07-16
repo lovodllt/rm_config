@@ -55,9 +55,9 @@ rm_manual:
     gimbal_error_tolerance: 0.12
     target_acceleration_tolerance: 1.0
     accleration_moving_average_num: 10
-    speed_10m_per_speed: 15.4
-    speed_15m_per_speed: 14.0
-    speed_16m_per_speed: 15.4
+    speed_10m_per_speed: 15.8
+    speed_15m_per_speed: 15.8
+    speed_16m_per_speed: 15.8
     speed_18m_per_speed: 18.0
     speed_30m_per_speed: 30.0
     wheel_speed_10: 535.0
@@ -78,12 +78,12 @@ rm_manual:
     camera2_name: "galaxy_camera"
   scope:
     topic: "/controllers/scope_controller/command"
-    on_pos: 1.85
-    off_pos: 0.01
+    on_pos: 1.76
+    off_pos: 0.1
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
     on_pos: -0.7
-    off_pos: -0.3
+    off_pos: -0.35
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -133,7 +133,7 @@ controllers:
   scope_controller:
     type: effort_controllers/JointPositionController
     joint: "scope_joint"
-    pid: { p: 8.0, i: 0.0, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 8.0, i: 0.1, d: 0.2, i_clamp_max: 0.0, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
 
   image_transmission_controller:
     type: effort_controllers/JointPositionController
