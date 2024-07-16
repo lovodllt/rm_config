@@ -85,10 +85,10 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 2.0, i: 25.0, d: 0.0, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
-      pid_pos: { p: 12.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-      k_chassis_vel: 0.05
-      k_v: 0.0
+      pid: { p: 2.4, i: 20.0, d: 0.0, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      pid_pos: { p: 16.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+      k_chassis_vel: 0.0
+      k_v: 0.85
       accel: 40.0
     pitch:
       joint: "pitch_joint"
@@ -142,7 +142,7 @@ controllers:
         wheel_speed_offset: -220
     trigger:
       joint: "trigger_joint"
-      pid: { p: 20.0, i: 0.0, d: 0.65, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 20.0, i: 0.0, d: 0.55, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
     push_per_rotation: 6
     push_qd_threshold: 0.85
     block_effort: 6.8
