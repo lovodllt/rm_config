@@ -102,7 +102,7 @@ controllers:
 
   gpio_controller:
     type: gpio_controller/Controller
-    gpios: [ "main_gripper", "silver_gripper1", "silver_gripper2", "silver_gripper3", "gold_gripper", "silver_pump" ]
+    gpios: [ "main_gripper", "silver_gripper1", "silver_gripper2", "silver_gripper3", "gold_gripper", "unused1", "unused2", "silver_pump" ]
 
   middle_pitch_controller:
     type: effort_controllers/JointPositionController
