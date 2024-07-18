@@ -16,12 +16,12 @@ controllers:
       - joint5
       - joint6
     gains:
-      joint1: { p: 17000.0, i: 0.0, d: 700.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
-      joint2: { p: 20, i: 0.0, d: 1.7, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
-      joint3: { p: 30.0, i: 0.0, d: 1.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
-      joint4: { p: 15.0, i: 0.0, d: 1, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
-      joint5: { p: 20.0, i: 0.0, d: 1.2, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
-      joint6: { p: 10.0, i: 0.0, d: 1.2, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint1: { p: 17000.0, i: 0.5, d: 700.0, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
+      joint2: { p: 250, i: 1, d: 1.7, i_clamp_max: 5, i_clamp_min: -5, antiwindup: true, publish_state: false }
+      joint3: { p: 150.0, i: 0.5, d: 1.5, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
+      joint4: { p: 15.0, i: 0.5, d: 1, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
+      joint5: { p: 20.0, i: 0.5, d: 1.2, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
+      joint6: { p: 10.0, i: 0.5, d: 1.2, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
 #    constraints:
 #      joint1: { trajectory: 0.03, goal: 0.01 }
 #      joint2: { trajectory: 0.03, goal: 0.01 }
@@ -113,48 +113,48 @@ controllers:
   silver_lifter_controller:
     type: effort_controllers/JointPositionController
     joint: silver_lifter_joint
-    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+    pid: { p: 1500., i: 0., d: 200, i_max: 0., i_min: 0., antiwindup: true, publish_state: true }
 
   silver_pusher_controller:
     type: effort_controllers/JointPositionController
     joint: silver_pusher_joint
-    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+    pid: { p: 5000., i: 0., d: 500, i_max: 0., i_min: 0., antiwindup: true, publish_state: true }
 
   silver_rotator_controller:
     type: effort_controllers/JointPositionController
     joint: silver_rotator_joint
-    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+    pid: { p: 80., i: 0., d: 10, i_max: 0., i_min: 0., antiwindup: true, publish_state: true }
 
   ######################### Gold  Ore Controllers ########################
 
   gold_lifter_controller:
     type: effort_controllers/JointPositionController
     joint: gold_lifter_joint
-    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+    pid: { p: 15000., i: 0., d: 200, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
 
   gold_pusher_controller:
     type: effort_controllers/JointPositionController
     joint: gold_pusher_joint
-    pid: { p: 0., i: 0., d: 0, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
+    pid: { p: 200., i: 0., d: 25, i_max: 0.01, i_min: 0.01, antiwindup: true, publish_state: true }
 
   ######################### Calibration Controllers ######################
   joint1_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ joint1_motor ]
     velocity:
-      search_velocity: 0.4
+      search_velocity: -0.4
       vel_threshold: 0.001
       joint: joint1
-      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      pid: { p: 250, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
 
   silver_lifter_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ silver_lifter_joint_motor ]
     velocity:
-      search_velocity: 0.4
+      search_velocity: -0.4
       vel_threshold: 0.001
-      joint: silver_lifter_joint_motor
-      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint: silver_lifter_joint
+      pid: { p: 150, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
 
   silver_pusher_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -163,16 +163,16 @@ controllers:
       search_velocity: 0.4
       vel_threshold: 0.001
       joint: silver_pusher_joint
-      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      pid: { p: 50, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
 
   silver_rotator_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ silver_rotator_joint_motor ]
     velocity:
-      search_velocity: 0.4
+      search_velocity: -0.6
       vel_threshold: 0.001
       joint: silver_rotator_joint
-      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
 
   gold_pusher_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -180,14 +180,14 @@ controllers:
     velocity:
       search_velocity: 0.4
       vel_threshold: 0.001
-      joint: gold_pusher_joint_motor
-      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint: gold_pusher_joint
+      pid: { p: 20, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
 
   gold_lifter_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ gold_lifter_joint_motor ]
     velocity:
-      search_velocity: 0.4
+      search_velocity: -0.4
       vel_threshold: 0.001
-      joint: gold_lifter_joint_motor
-      pid: { p: 200, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
+      joint: gold_lifter_joint
+      pid: { p: 150, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: 0, antiwindup: true, publish_state: false }
