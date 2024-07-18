@@ -1,6 +1,6 @@
 rm_manual:
   dbus_topic: "/rm_ecat_hw/dbus"
-  robot_type: "engineer"
+  robot_type: "engineer2"
   chassis:
     topic: "/cmd_chassis"
     accel_x:
@@ -82,17 +82,40 @@ rm_manual:
       - controllers/middle_pitch_controller
 #      - controllers/gimbal_controller
       - controllers/gpio_controller
+      - controllers/silver_lifter_controller
+      - controllers/silver_pusher_controller
+      - controllers/silver_rotator_controller
+      - controllers/gold_lifter_controller
+      - controllers/gold_pusher_controller
 
     calibration_controllers:
       - controllers/joint1_calibration_controller
-      - controllers/joint5_calibration_controller
-      - controllers/joint6_calibration_controller
+      - controllers/silver_lifter_calibration_controller
+      - controllers/silver_pusher_calibration_controller
+      - controllers/silver_rotator_calibration_controller
+      - controllers/gold_pusher_calibration_controller
+      - controllers/gold_lifter_calibration_controller
 
   calibration_gather:
     - start_controllers:
         - controllers/joint1_calibration_controller
+        - controllers/silver_lifter_calibration_controller
+        - controllers/silver_pusher_calibration_controller
+        - controllers/silver_rotator_calibration_controller
+        - controllers/gold_pusher_calibration_controller
+        - controllers/gold_lifter_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
         - controllers/arm_trajectory_controller
+        - controllers/silver_lifter_controller
+        - controllers/silver_pusher_controller
+        - controllers/silver_rotator_controller
+        - controllers/gold_pusher_controller
+        - controllers/gold_lifter_controller
       services_name:
         - /controllers/joint1_calibration_controller/is_calibrated
+        - /controllers/silver_lifter_calibration_controller/is_calibrated
+        - /controllers/silver_pusher_calibration_controller/is_calibrated
+        - /controllers/silver_rotator_calibration_controller/is_calibrated
+        - /controllers/gold_pusher_calibration_controller/is_calibrated
+        - /controllers/gold_lifter_calibration_controller/is_calibrated
