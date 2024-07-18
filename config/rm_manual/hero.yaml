@@ -131,11 +131,6 @@ controllers:
     joint: "scope_joint"
     pid: { p: 8.0, i: 0.0, d: 0.3, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
 
-#  image_transmission_controller:
-#    type: effort_controllers/JointPositionController
-#    joint: "image_transmission_joint"
-#    pid: { p: 1.2, i: 0.0, d: 0.015, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
-
   image_transmission_controller:
     type: rm_position_controller/RMPositionController
     publish_rate: 50
