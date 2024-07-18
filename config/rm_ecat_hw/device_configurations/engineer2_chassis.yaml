@@ -21,7 +21,7 @@ can_motors:
     name: "right_front_wheel_motor"
     type: "M3508"
     need_calibration: false
-  - can_id: 6
+  - can_id: 5
     can_bus: 0
     name: "silver_lifter_joint_motor"
     type: "M3508"
