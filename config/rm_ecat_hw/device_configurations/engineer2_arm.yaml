@@ -39,13 +39,13 @@ gpios:
   - name: "silver_gripper1"
     pin: 1
     mode: 1
-  - name: "silver_gripper2"
+  - name: "silver_gripper3"
     pin: 2
     mode: 1
-  - name: "silver_gripper3"
+  - name: "silver_pump"
     pin: 3
     mode: 1
-  - name: "gold_gripper"
+  - name: "silver_gripper2"
     pin: 4
     mode: 1
   - name: "unused1"
@@ -54,6 +54,6 @@ gpios:
   - name: "unused2"
     pin: 6
     mode: 1
-  - name: "silver_pump"
+  - name: "gold_gripper"
     pin: 7
     mode: 1
