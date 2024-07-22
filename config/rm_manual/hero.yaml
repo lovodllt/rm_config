@@ -74,11 +74,11 @@ rm_manual:
       type: "ID1_42MM"
   scope:
     topic: "/controllers/scope_controller/command"
-    on_pos: 1.765
+    on_pos: 1.785
     off_pos: 0.1
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
-    on_pos: -0.64
+    on_pos: -0.595
     off_pos: -0.35
   detection_switch:
     fail_limit: 10
