@@ -17,7 +17,7 @@ controllers:
       - joint6
     gains:
       joint1: { p: 17000.0, i: 0.5, d: 700.0, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
-      joint2: { p: 250, i: 1, d: 1.7, i_clamp_max: 5, i_clamp_min: -5, antiwindup: true, publish_state: false }
+      joint2: { p: 150, i: 0, d: 2., i_clamp_max: 5, i_clamp_min: -5, antiwindup: true, publish_state: false }
       joint3: { p: 150.0, i: 0.5, d: 1.5, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
       joint4: { p: 50.0, i: 0.5, d: 1, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
       joint5: { p: 50.0, i: 0.5, d: 1.2, i_clamp_max: 1, i_clamp_min: -1, antiwindup: true, publish_state: false }
