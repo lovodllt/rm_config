@@ -1,5 +1,5 @@
 rm_referee:
-  robot_type: engineer
+  robot_type: engineer2
   send_ui_queue_delay: 0.05
   add_ui_frequency: 0.5
   add_ui_max_times: 3
@@ -7,10 +7,6 @@ rm_referee:
   interactive_data:
   ui:
     trigger_change:
-      - name: "stone"
-        config: { start_position: [ 50, 600 ], size: 15, width: 2, title: "stone:" }
-      - name: "gripper"
-        config: { start_position: [ 50, 650 ], size: 15, width: 2, title: "gripper:" }
       - name: "servo_mode"
         config: { start_position: [ 50, 700 ], size: 15, width: 2, title: "mode:" }
     fixed:
@@ -21,3 +17,8 @@ rm_referee:
         config: { type: "line", width: 2, color: "orange",
                   start_position: [ 1047, 457 ], end_position: [ 1245, 245 ] }
     flash:
+      - name: "engineer_action"
+        data:
+          - { flag: 1, config: { type: "line", width: 2, color: "orange",start_position: [ 1136, 179 ], end_position: [ 1233, 36 ] } }
+          - { flag: 2, config: { type: "line", width: 2, color: "orange",start_position: [ 1047, 457 ], end_position: [ 1245, 245 ] } }
+          - { flag: 2, config: { type: "line", width: 2, color: "orange",start_position: [ 887, 456 ], end_position: [ 626, 230 ] } }
