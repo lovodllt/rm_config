@@ -5,7 +5,7 @@ rm_referee:
   add_ui_max_times: 3
   dbus_topic: "/rm_ecat_hw/dbus"
   interactive_data:
-    - name: bullet_num_share
+    - name: "bullet_num_share"
       config: { delay: 1.0 }
   ui:
     trigger_change:
@@ -37,7 +37,7 @@ rm_referee:
       - name: "target_distance"
         config: { type: "float_num", start_position: [ 190, 650 ], size: 25, width: 3 ,color: "yellow", delay: 0.4 }
       - name: "friend_bullets"
-        config: { type: "int_num", start_position: [ 1620, 800 ], color: "pink" ,size: 15, width: 2 , delay: 1.0 }
+        config: { type: "int_num", start_position: [ 1620, 700 ], color: "pink" ,size: 15, width: 2 , delay: 1.0 }
     fixed:
       - name: "capacity_boundary_l"
         config: { type: "line", width: 2, color: "green",

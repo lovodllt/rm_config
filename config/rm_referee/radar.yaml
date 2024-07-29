@@ -3,3 +3,4 @@ rm_referee:
   interactive_data:
     - name: "radar_to_sentry"
       config: { delay: 0.04 }
+    - name: "custom_info"
