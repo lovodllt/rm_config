@@ -48,12 +48,12 @@ gpios:
   - name: "silver_gripper2"
     pin: 4
     mode: 1
-  - name: "unused1"
+  - name: "gold_gripper"
     pin: 5
     mode: 1
   - name: "unused2"
     pin: 6
     mode: 1
-  - name: "gold_gripper"
+  - name: "unused1"
     pin: 7
     mode: 1
