@@ -148,4 +148,4 @@ controllers:
     exit_push_threshold: 0.26
     wheel_speed_drop_threshold: 5.0
     wheel_speed_raise_threshold: 1.4
-    freq_threshold: 20
+    freq_threshold: 15
