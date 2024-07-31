@@ -117,7 +117,7 @@ controllers:
       min_switch_angle: 2
       ban_shoot_duration: 0.015
       gimbal_switch_duration: 0.1
-      max_track_target_vel: 18.0
+      max_track_target_vel: 12.0
       max_chassis_angular_vel: 12.0
       track_rotate_target_delay: 0.03
       track_move_target_delay: 0.03
