@@ -129,7 +129,7 @@ rm_manual:
       stop_controllers:
         - controllers/shooter_controller
       services_name:
-        - controllers/trigger_calibration_controller/is_calibrated
+        - /controllers/trigger_calibration_controller/is_calibrated
 
 controllers:
   cover_controller:
