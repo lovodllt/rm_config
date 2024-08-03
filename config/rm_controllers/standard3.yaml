@@ -44,7 +44,7 @@ controllers:
     twist_angular: 0.5233
     max_odom_vel: 10.0
     timeout: 0.1
-    pid_follow: { p: 8.5, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 8.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
@@ -87,8 +87,8 @@ controllers:
       accel: 45.0
     pitch:
       joint: "pitch_joint"
-      pid: { p: 0.45, i: 20.0, d: 0.0, i_clamp_max: 0.23, i_clamp_min: -0.23, antiwindup: true, publish_state: true }
-      pid_pos: { p: 25.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 0.7, i: 12.0, d: 0.0, i_clamp_max: 0.23, i_clamp_min: -0.23, antiwindup: true, publish_state: true }
+      pid_pos: { p: 22.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
       k_v: 1.0
       accel: 40.0
     delay: 0.03
@@ -97,7 +97,7 @@ controllers:
       debug: true
     imu_name: "gimbal_imu"
     feedforward:
-      gravity: 12.2625
+      gravity: 12.56
       enable_gravity_compensation: false
       mass_origin: [ 0.0293,0.0,0.01 ]
     bullet_solver:
