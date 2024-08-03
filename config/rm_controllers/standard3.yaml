@@ -119,7 +119,7 @@ controllers:
       max_chassis_angular_vel: 12.0
       track_rotate_target_delay: 0.02
       track_move_target_delay: 0.03
-      track_center_second_delay: 0.07
+      wait_diagonal_armor_delay: 0.07
 
   shooter_controller:
     type: rm_shooter_controllers/Controller
