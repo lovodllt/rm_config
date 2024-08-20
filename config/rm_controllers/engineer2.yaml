@@ -135,7 +135,7 @@ controllers:
   gold_pusher_controller:
     type: effort_controllers/JointPositionController
     joint: gold_pusher_joint
-    pid: { p: 90., i: 20., d: 40, i_max: 200, i_min: -200, antiwindup: true, publish_state: true }
+    pid: { p: 120., i: 20., d: 40, i_max: 200, i_min: -200, antiwindup: true, publish_state: true }
 
 
   ######################### Calibration Controllers ######################
