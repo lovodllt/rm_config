@@ -99,9 +99,9 @@ rm_manual:
     state_controllers:
       - controllers/joint_state_controller
       - controllers/robot_state_controller
+      - controllers/orientation_controller
     main_controllers:
       - controllers/legged_balance_controller
-      - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
     calibration_controllers:

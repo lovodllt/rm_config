@@ -63,7 +63,7 @@ controllers:
     leg_protect_length: 0.1
     leg_protect_speed: 8.0
     ground_support_threshold: 20
-    vmc_bias_angle: 3.837
+    vmc_bias_angle: 3.49
 
     gravity_compensation_vel_threshold: 0.1
     gravity_compensation_pos_threshold: 0.5
