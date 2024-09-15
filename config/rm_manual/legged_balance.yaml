@@ -45,8 +45,8 @@ rm_manual:
       - [ 100.0,1.40 ]
       - [ 220.0,1.50 ]
     max_angular_z:
-      - [ 60.0,5.5 ]
-      - [ 80.0,7.5 ]
+      - [ 60.0,7.5 ]
+      - [ 80.0,8.5 ]
       - [ 220.0,9.5 ]
     gyro_move_reduction: 0.5
     gyro_rotate_reduction: 1.0
@@ -65,8 +65,9 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_tolerance: 0.08
-    target_acceleration_tolerance: 10
+    track_armor_error_tolerance: 0.08
+    track_buff_error_tolerance: 0.12
+    target_acceleration_tolerance: 99.0
     speed_10m_per_speed: 10.0
     speed_15m_per_speed: 28.0
     speed_16m_per_speed: 16.0
@@ -98,9 +99,9 @@ rm_manual:
     state_controllers:
       - controllers/joint_state_controller
       - controllers/robot_state_controller
+      - controllers/orientation_controller
     main_controllers:
       - controllers/legged_balance_controller
-      - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
     calibration_controllers:
