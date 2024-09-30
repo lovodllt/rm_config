@@ -1,6 +1,6 @@
 rm_referee:
   robot_type: standard
-  send_ui_queue_delay: 0.15
+  send_ui_queue_delay: 0.036
   add_ui_frequency: 0.5
   add_ui_max_times: 3
   dbus_topic: "/rm_ecat_hw/dbus"
@@ -31,6 +31,12 @@ rm_referee:
         config: { type: "arc", width: 4, delay: 0.15, color: "yellow",
                   start_position: [ 960, 520 ], end_position: [ 320, 320 ] , start_angle: 60, end_angle: 120 }
         data: { scale: 50, gimbal_reference_frame: "yaw", chassis_reference_frame: "base_link" }
+      - name: "balance_leg_length"
+        config: { type: "line", width: 15, delay: 0.15,
+                  start_position: [ 1600, 250 ], end_position: [ 1600, 400 ] }
+      - name: "balance_leg_state"
+        config: { type: "line", width: 4, color: "main_color", delay: 0.2 }
+        data: { ori_x: 750, ori_y: 250 , distance: 250, line_ae_length: 90 }
 
     fixed:
       - name: "capacity_boundary_l"
@@ -57,6 +63,9 @@ rm_referee:
       - name: "fixed_lane_line_2"
         config: { type: "line", width: 2, color: "green",
                   start_position: [ 871, 713 ], end_position: [ 569, 0 ] }
+      - name: "legged_balance_length"
+        config: { type: "line", width: 2, color: "green",
+                  start_position: [ 1550, 560 ], end_position: [ 1750, 560 ] }
     flash:
       - name: "cover"
         config: { start_position: [ 830, 700 ], size: 25, width: 2,
