@@ -26,6 +26,7 @@
           controllers/scope_controller
           controllers/balance_controller
           controllers/legged_balance_controller
+          controllers/legged_wheel_controller
           controllers/four_link_vmc_controller
           controllers/leg_lf_calibration_controller
           controllers/leg_lb_calibration_controller

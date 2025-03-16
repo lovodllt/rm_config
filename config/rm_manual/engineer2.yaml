@@ -19,13 +19,14 @@ rm_manual:
     speed_scale: 0.8
 
     fast_speed_scale: 1.2
-    normal_speed_scale: 0.6
+    normal_speed_scale: 0.5
     low_speed_scale: 0.3
-    exchange_speed_scale: 0.15
+    exchange_speed_scale: 0.4
+    big_island_speed_scale: 0.02
 
     fast_gyro_scale: 1.5
-    normal_gyro_scale: 0.8
-    low_gyro_scale: 0.4
+    normal_gyro_scale: 0.5
+    low_gyro_scale: 0.3
     exchange_gyro_scale: 0.2
 
   vel:
@@ -90,6 +91,7 @@ rm_manual:
 
     calibration_controllers:
       - controllers/joint1_calibration_controller
+      - controllers/ee_calibration_controller
       - controllers/silver_lifter_calibration_controller
       - controllers/silver_pusher_calibration_controller
       - controllers/silver_rotator_calibration_controller
@@ -99,6 +101,7 @@ rm_manual:
   calibration_gather:
     - start_controllers:
         - controllers/joint1_calibration_controller
+        - controllers/ee_calibration_controller
         - controllers/silver_lifter_calibration_controller
         - controllers/silver_pusher_calibration_controller
         - controllers/silver_rotator_calibration_controller
@@ -114,6 +117,7 @@ rm_manual:
         - controllers/gold_lifter_controller
       services_name:
         - /controllers/joint1_calibration_controller/is_calibrated
+        - /controllers/ee_calibration_controller/is_calibrated
         - /controllers/silver_lifter_calibration_controller/is_calibrated
         - /controllers/silver_pusher_calibration_controller/is_calibrated
         - /controllers/silver_rotator_calibration_controller/is_calibrated
