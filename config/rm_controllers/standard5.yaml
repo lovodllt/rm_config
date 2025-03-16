@@ -39,7 +39,7 @@ controllers:
     enable_odom_tf: true
     publish_odom_tf: false
     power:
-      effort_coeff: 5.0
+      effort_coeff: 3.5
       vel_coeff: 0.006
       power_offset: -8.41
     twist_angular: 0.5233
@@ -56,7 +56,7 @@ controllers:
         <<: &wheel_setting
           roller_angle: 0.
           radius: 0.07625
-          pid: { p: 0.45, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: false }
+          pid: { p: 0.35, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: false }
       right_front:
         pose: [ 0.147, -0.147, 0.785 ]
         joint: right_front_wheel_joint
@@ -81,15 +81,18 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 0.5, i: 20.0, d: 0.0, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
-      pid_pos: { p: 15.5, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
-      k_chassis_vel: 0.056
+      pid: { p: 0.79, i: 20.0, d: 0.0, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: true }
+      pid_pos: { p: 15.5, i: 0.0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      chassis_comp_a: 8.4e-3
+      chassis_comp_b: 1.852e-1
+      chassis_comp_c: -1.7106
+      chassis_comp_d: 2.76e-2
       k_v: 1.0
       accel: 40
     pitch:
       joint: "pitch_joint"
-      pid: { p: 0.7, i: 20.0, d: 0.0, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
-      pid_pos: { p: 26.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 0.72, i: 16.5, d: 0.0, i_clamp_max: 0.22, i_clamp_min: -0.22, antiwindup: true, publish_state: true }
+      pid_pos: { p: 18.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
       k_v: 1.0
       accel: 30
     chassis_vel:
@@ -107,7 +110,7 @@ controllers:
       resistance_coff_qd_18: 0.55
       resistance_coff_qd_30: 0.01
       g: 9.81
-      delay: 0.03
+      delay: 0.1
       wait_next_armor_delay: 0.105
       wait_diagonal_armor_delay: 0.105
       dt: 0.001
@@ -115,11 +118,11 @@ controllers:
       publish_rate: 50
       max_switch_angle: 50
       min_switch_angle: 2
-      ban_shoot_duration: 0.015
-      gimbal_switch_duration: 0.1
+      ban_shoot_duration: 0.038
+      gimbal_switch_duration: 0.09
       max_track_target_vel: 12.0
       max_chassis_angular_vel: 12.0
-      track_rotate_target_delay: 0.03
+      track_rotate_target_delay: 0.04
       track_move_target_delay: 0.03
 
   shooter_controller:
@@ -135,7 +138,7 @@ controllers:
         pid: { p: 0.0007, i: 0.005, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: false }
     trigger:
       joint: "trigger_joint"
-      pid: { p: 28.0, i: 0.0, d: 1.5, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: false }
+      pid: { p: 20.0, i: 0.0, d: 1.5, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: false }
     push_per_rotation: 9
     push_qd_threshold: 0.90
     block_effort: 2.2
