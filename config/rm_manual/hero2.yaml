@@ -102,11 +102,11 @@ rm_manual:
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
-      #      - controllers/scope_controller
+      - controllers/scope_controller
       - controllers/image_transmission_controller
     calibration_controllers:
       - controllers/trigger_calibration_controller
-      #      - controllers/scope_calibration_controller
+      - controllers/scope_calibration_controller
       - controllers/image_transmission_calibration_controller
 
   shooter_calibration:
