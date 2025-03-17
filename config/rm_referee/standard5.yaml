@@ -5,7 +5,7 @@ rm_referee:
   add_ui_max_times: 3
   dbus_topic: "/rm_ecat_hw/dbus"
   interactive_data:
-    - name: "bullet_num_share"
+    - name: bullet_num_share
       config: { delay: 1.0 }
   ui:
     trigger_change:
@@ -57,6 +57,12 @@ rm_referee:
       - name: "mid"
         config: { type: "line", width: 2, color: "yellow",
                   start_position: [ 960, 400 ], end_position: [ 960, 540 ] }
+      - name: "vision_switch_l"
+        config: { type: "line", width: 2, color: "blue",
+                  start_position: [ 954, 490 ], end_position: [ 974, 490 ] }
+      - name: "vision_switch_r"
+        config: { type: "line", width: 2, color: "blue",
+                  start_position: [ 964, 480 ], end_position: [ 964, 500 ] }
       - name: "target"
         config: { type: "string", start_position: [ 30, 650 ], size: 25, width: 2, color: "pink", content: "target:" }
       - name: "bullet_string"
