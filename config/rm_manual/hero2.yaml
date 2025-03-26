@@ -2,7 +2,7 @@ rm_manual:
   robot_type: "hero"
   dbus_topic: "/rm_ecat_hw/dbus"
   chassis_calibrate_motor: [ ]
-  gimbal_calibrate_motor: [ "pitch_joint_motor","yaw_joint_motor" ]
+  gimbal_calibrate_motor: [ "scope_joint_motor", "image_transmission_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   chassis:
     topic: "/cmd_chassis"
@@ -15,34 +15,35 @@ rm_manual:
     safety_power: 60
     capacitor_threshold: 0.2
     charge_power: 20
-    extra_power: 50
+    extra_power: 30
     burst_power: 220
     buffer_threshold: 10
-    power_gain: 0.85
+    power_gain: 0
+    is_new_capacitor: true
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/cmd_chassis"
     max_linear_x:
-      - [ 55.0,1.75 ]
-      - [ 80.0,2.25 ]
-      - [ 220.0,3.8 ]
+      - [ 50.0,2.14 ]
+      - [ 80.0,3.5 ]
+      - [ 300.0,4.0 ]
     max_linear_y:
-      - [ 55.0,1.0 ]
-      - [ 80.0,1.43 ]
-      - [ 220.0,3.8 ]
+      - [ 50.0,2.14 ]
+      - [ 80.0,3.5 ]
+      - [ 300.0,4.0 ]
     max_angular_z:
-      - [ 50.0,5.5 ]
-      - [ 80.0,9.25 ]
-      - [ 220.0,9.42 ]
-    gyro_move_reduction: 0.50
-    gyro_rotate_reduction: 0.50
+      - [ 50.0,4.0 ]
+      - [ 80.0,6.0 ]
+      - [ 300.0,8.0 ]
+    gyro_move_reduction: 0.20
+    gyro_rotate_reduction: 0.70
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 12.56
-    max_pitch_vel: 8.37
-    gimbal_scale: 8
+    max_yaw_vel: 10.00
+    max_pitch_vel: 10.00
+    gimbal_scale: 5
     track_timeout: 0.5
-    eject_sensitivity: 0.38
+    eject_sensitivity: 0.1
     finish_turning_threshold: 2.9
     target_cost_function:
       k_pos: 1.0
@@ -52,28 +53,42 @@ rm_manual:
       timeout: 0.1
   shooter:
     topic: "/controllers/shooter_controller/command"
-    track_armor_error_tolerance: 0.1
+    track_armor_error_tolerance: 0.15
     target_acceleration_tolerance: 1.0
     accleration_moving_average_num: 10
-    speed_10m_per_speed: 15.4
-    speed_15m_per_speed: 14.0
-    speed_16m_per_speed: 15.4
+    speed_10m_per_speed: 15.8
+    speed_15m_per_speed: 15.8
+    speed_16m_per_speed: 15.8
     speed_18m_per_speed: 18.0
     speed_30m_per_speed: 30.0
-    wheel_speed_10: 595.0
-    wheel_speed_16: 595.0
+    wheel_speed_10: 515.0
+    wheel_speed_16: 515.0
     extra_wheel_speed_once: 5.0
+    auto_wheel_speed: false
+    speed_oscillation: 0.1
     heat_limit:
       low_shoot_frequency: 1
       high_shoot_frequency: 3
       burst_shoot_frequency: 6
       minimal_shoot_frequency: 1
       safe_shoot_frequency: 1
-      heat_coeff: 4.0
+      heat_coeff: 3.5
+      use_local_heat_: false
       type: "ID1_42MM"
+  scope:
+    topic: "/controllers/scope_controller/command"
+    on_pos: 1.79559
+    off_pos: 0.1
+  image_transmission:
+    topic: "/controllers/image_transmission_controller/command"
+    on_pos: -0.669
+    off_pos: -0.4
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
+  base_switch:
+    fail_limit: 10
+    service_name: "/Processor/base_status_switch"
   armor_target_switch:
     fail_limit: 10
     service_name: "/outpost_status_switch"
@@ -87,10 +102,12 @@ rm_manual:
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
+      - controllers/scope_controller
+      - controllers/image_transmission_controller
     calibration_controllers:
       - controllers/trigger_calibration_controller
-      - controllers/yaw_calibration_controller
-      - controllers/pitch_calibration_controller
+      - controllers/scope_calibration_controller
+      - controllers/image_transmission_calibration_controller
 
   shooter_calibration:
     - start_controllers:
@@ -102,8 +119,31 @@ rm_manual:
 
   gimbal_calibration:
     - start_controllers:
-        - controllers/pitch_calibration_controller
+        - controllers/image_transmission_calibration_controller
       stop_controllers:
-        - controllers/gimbal_controller
+        - controllers/image_transmission_controller
       services_name:
-        - /controllers/pitch_calibration_controller/is_calibrated
+        - /controllers/image_transmission_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/scope_calibration_controller
+      stop_controllers:
+        - controllers/scope_controller
+      services_name:
+        - /controllers/scope_calibration_controller/is_calibrated
+
+controllers:
+  scope_controller:
+    type: effort_controllers/JointPositionController
+    joint: "scope_joint"
+    pid: { p: 8.0, i: 0.0, d: 0.3, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+
+  image_transmission_controller:
+    type: rm_position_controller/RMPositionController
+    publish_rate: 50
+    pos_controller1:
+      joint: "image_transmission_joint"
+      pid: { p: 1.1, i: 14.0, d: 0.02, i_clamp_max: 0.0, i_clamp_min: -0.08, antiwindup: true, publish_state: true }
+    pos_controller2:
+      joint: "image_transmission_joint"
+      pid: { p: 1.5, i: 20.0, d: 0.035, i_clamp_max: 0.0, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
+    threshold: 0.03
