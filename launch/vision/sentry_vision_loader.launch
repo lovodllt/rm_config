@@ -1,7 +1,9 @@
+<!-- 烧饼视觉启动 -->
 <launch>
+    <!-- 加载指定机器人的配置文件 -->
     <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type [standard, hero, engineer]"/>
     <rosparam file="$(find rm_config)/config/rm_track/$(arg robot_type).yaml" command="load"/>
-
+    <!-- 下层处理器节点 -->
     <node pkg="nodelet" type="nodelet" name="lower_processor"
           args="load rm_digtialimg_proc/Processor lower_vision_nodelet">
         <rosparam file="$(find rm_digtialimg_proc)/config/weibull_coefficient.yaml" command="load"/>
@@ -12,7 +14,7 @@
         <remap from="debug_image" to="lower_debug_image"/>
         <remap from="/galaxy_camera/image_raw" to="/galaxy_camera/lower_camera/image_raw"/>
     </node>
-
+    <!-- 位姿节点 -->
     <node pkg="rm_pose_solver" type="pose_solver_node" name="lower_pose_solver_node" output="screen">
         <rosparam file="$(find rm_pose_solver)/config/pose_solver_config.yaml" command="load"/>
         <remap from="/processor/result_msg" to="/lower_processor/result_msg"/>
@@ -37,6 +39,6 @@
     <!--        <remap from="/galaxy_camera/camera_info" to="/galaxy_camera/upper_camera/camera_info"/>-->
     <!--        <remap from="/detection" to="/detection"/>-->
     <!--    </node>-->
-
+    <!-- respawn="false"：节点意外退出后不会自动重启 -->
     <node name="rm_track" pkg="rm_track" type="rm_track" respawn="false"/>
 </launch>

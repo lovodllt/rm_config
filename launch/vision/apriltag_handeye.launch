@@ -1,11 +1,14 @@
+<!-- 相机标定 -->
 <launch>
     <arg name="launch_prefix" default=""/>
+    <!-- 节点命名空间 -->
     <arg name="node_namespace" default="apriltag_ros_continuous_node"/>
     <arg name="manager" default="vision_nodelet"/>
     <arg name="camera_name" default="usb_cam"/>
     <arg name="camera_frame" default="camera_optical_frame"/>
     <arg name="image_topic" default="image_rect_color"/>
 
+    <!-- ns:指定节点命名空间 -->
     <rosparam command="load" file="$(find rm_config)/config/handeye/settings.yaml" ns="$(arg node_namespace)"/>
     <rosparam command="load" file="$(find rm_config)/config/handeye/tags.yaml" ns="$(arg node_namespace)"/>
 

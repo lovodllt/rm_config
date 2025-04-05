@@ -1,4 +1,5 @@
 <?xml version="1.0" ?>
+<!-- 跟踪 -->
 <launch>
     <arg name="launch_prefix" default=""/>
     <arg name="node_namespace" default="apriltag_ros_continuous_node"/>
