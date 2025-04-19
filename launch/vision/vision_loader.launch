@@ -1,15 +1,27 @@
 <launch>
-    <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type [standard, hero, engineer]"/>
-    <arg name="camera_type" default="$(env CAMERA_TYPE)" doc="Camera type"/>
+    <arg name="robot_type" default="standard" doc="Robot type [standard, hero, engineer]"/>
+    <arg name="camera_type" default="hk_camera" doc="Camera type"/>
     <arg name="camera_name" default="camera"/>
     <rosparam file="$(find armor_processor)/config/processor_config.yaml" command="load"/>
 
+<!--    <node pkg="nodelet" type="nodelet" name="Processor"-->
+<!--          args="load rm_digtialimg_proc/Processor vision_nodelet" respawn="true">-->
+<!--        <rosparam file="$(find rm_digtialimg_proc)/config/weibull_coefficient.yaml" command="load"/>-->
+<!--        <rosparam file="$(find rm_digtialimg_proc)/config/make_dataset.yaml" command="load"/>-->
+<!--        <rosparam file="$(find rm_digtialimg_proc)/config/armor_coefficient.yaml" command="load"/>-->
+<!--        <rosparam file="$(find rm_digtialimg_proc)/config/preprocess_coefficient.yaml" command="load"/>-->
+<!--        <remap from="/processor/result_msg" to="/processor/result_msg"/>-->
+<!--        <remap from="debug_image" to="debug_image"/>-->
+<!--        <remap from="/galaxy_camera/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>-->
+<!--    </node>-->
+
     <node pkg="nodelet" type="nodelet" name="Processor"
-          args="load rm_digtialimg_proc/Processor vision_nodelet" respawn="true">
-        <rosparam file="$(find rm_digtialimg_proc)/config/weibull_coefficient.yaml" command="load"/>
-        <rosparam file="$(find rm_digtialimg_proc)/config/make_dataset.yaml" command="load"/>
-        <rosparam file="$(find rm_digtialimg_proc)/config/armor_coefficient.yaml" command="load"/>
-        <rosparam file="$(find rm_digtialimg_proc)/config/preprocess_coefficient.yaml" command="load"/>
+          args="load rm_digtialimg_proc_deep/Processor vision_nodelet" respawn="true">
+        <rosparam file="$(find rm_digtialimg_proc_deep)/config/weibull_coefficient.yaml" command="load"/>
+<!--        <rosparam file="$(find rm_digtialimg_proc_deep)/config/make_dataset.yaml" command="load"/>-->
+        <rosparam file="$(find rm_digtialimg_proc_deep)/config/armor_coefficient.yaml" command="load"/>
+        <rosparam file="$(find rm_digtialimg_proc_deep)/config/preprocess_coefficient.yaml" command="load"/>
+        <rosparam file="$(find rm_digtialimg_proc_deep)/config/inference.yaml" command="load"/>
         <remap from="/processor/result_msg" to="/processor/result_msg"/>
         <remap from="debug_image" to="debug_image"/>
         <remap from="/galaxy_camera/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>
@@ -31,15 +43,15 @@
 <!--       <remap from="/hk_camera/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>-->
 <!--    </node>-->
 
-    <node pkg="nodelet" type="nodelet" name="forecast"
-          args="load fft_forecast/Forecast_Node vision_nodelet" respawn="true">
-        <rosparam file="$(find fft_forecast)/config/forecast.yaml" command="load" />
-        <rosparam file="$(find fft_forecast)/config/camera.yaml" command="load" />
-        <remap from="/hk_camera/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>
-        <remap from="/hk_camera/camera_info" to="/$(arg camera_type)/$(arg camera_name)/camera_info"/>
-    </node>
+<!--    <node pkg="nodelet" type="nodelet" name="forecast"-->
+<!--          args="load fft_forecast/Forecast_Node vision_nodelet" respawn="true">-->
+<!--        <rosparam file="$(find fft_forecast)/config/forecast.yaml" command="load" />-->
+<!--        <rosparam file="$(find fft_forecast)/config/camera.yaml" command="load" />-->
+<!--        <remap from="/hk_camera/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>-->
+<!--        <remap from="/hk_camera/camera_info" to="/$(arg camera_type)/$(arg camera_name)/camera_info"/>-->
+<!--    </node>-->
 
 <!--     <include file="$(find buff_vision)/launch/buff_nodelet.launch"/> -->
 
-    <include file="$(find windmill)/launch/windmill.launch"/>
+<!--    <include file="$(find windmill)/launch/windmill.launch"/>-->
 </launch>
