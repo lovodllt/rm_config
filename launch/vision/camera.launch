@@ -1,22 +1,22 @@
 <launch>
     <!-- imu：惯性测量单元 相机类型 相机类别 相机名称 相机坐标系 硬件名称 -->
     <arg name="imu_trigger" default="false"/>
-    <arg name="camera_type" default="$(env CAMERA_TYPE)" doc="Camera type"/>
-    <arg name="camera_class" default="$(env CAMERA_CLASS)"/>
+    <arg name="camera_type" default="hk_camera" doc="Camera type"/>
+    <arg name="camera_class" default="HKCameraNodelet"/>
     <arg name="camera_name" default="camera"/>
     <arg name="camera_frame" default="camera_optical_frame"/>
-    <arg name="hw_name" default="$(env HW_NAME)" doc="[rm_ecat_hw, rm_hw]"/>
-    <!-- 相机标定那个 -->
+    <arg name="hw_name" default="rm_ecat_hw" doc="[rm_ecat_hw, rm_hw]"/>
+
     <rosparam file="$(find rm_config)/config/vision/camera.yaml" command="load"/>
 
     <node pkg="nodelet" type="nodelet" name="vision_nodelet" args="manager"
-          output="screen">
+          output="screen" respawn="true">
         <param name="num_worker_threads" value="8"/>
     </node>
 
     <node pkg="nodelet" type="nodelet" name="$(arg camera_name)"
           args="load $(arg camera_type)/$(arg camera_class) vision_nodelet"
-          output="screen">
+          output="screen" respawn="true">
         <param name="camera_frame_id" value="$(arg camera_frame)"/>
         <param name="enable_imu_trigger" value="$(arg imu_trigger)"/>
         <remap from="$(arg camera_name)/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>
