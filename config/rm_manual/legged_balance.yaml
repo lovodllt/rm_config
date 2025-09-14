@@ -69,6 +69,8 @@ rm_manual:
   shooter:
     topic: "/controllers/shooter_controller/command"
     track_armor_error_tolerance: 0.08
+    untrack_armor_error_tolerance: 0.04
+    max_track_target_vel: 10.8
     track_buff_error_tolerance: 0.12
     target_acceleration_tolerance: 99.0
     speed_10m_per_speed: 23.5
@@ -76,9 +78,9 @@ rm_manual:
     speed_16m_per_speed: 23.5
     speed_18m_per_speed: 23.5
     speed_30m_per_speed: 23.5
-    wheel_speed_15: 770.0
-    wheel_speed_18: 770.0
-    wheel_speed_30: 770.0
+    wheel_speed_15: 715.0
+    wheel_speed_18: 715.0
+    wheel_speed_30: 715.0
     extra_wheel_speed_once: 5.0
     heat_limit:
       low_shoot_frequency: 20
@@ -97,6 +99,15 @@ rm_manual:
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
+  buff_switch:
+    fail_limit: 10
+    service_name: "/buff_status_switch"
+  buff_type_switch:
+    fail_limit: 10
+    service_name: "/forecast/status_switch"
+  exposure_switch:
+    fail_limit: 10
+    service_name: "/exposure_status_switch"
 
   controllers_list:
     state_controllers:
@@ -106,6 +117,7 @@ rm_manual:
       - controllers/orientation_controller
       - controllers/legged_balance_controller
       - controllers/gimbal_controller
+      - controllers/shooter_controller
     calibration_controllers:
       - controllers/leg_lf_calibration_controller
       - controllers/leg_lb_calibration_controller
