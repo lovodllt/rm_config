@@ -117,7 +117,7 @@ controllers:
     twist_angular: 0.5233
     max_odom_vel: 10.0
     timeout: 0.1
-    pid_follow: { p: 5.0, i: 0, d: 0.6, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 6.0, i: 0, d: 0.6, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     pid_block_error: { p: 0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
@@ -128,7 +128,7 @@ controllers:
     pid_roll: { p: 800.0, i: 0, d: 30., i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
     #    pid_yaw_pos: { p: 2.0, i: 1.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
     pid_yaw_pos: { p: 0.0, i: 0.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
-    pid_yaw_vel: { p: 0.6, i: 2.7, d: 0., i_clamp_max: 0.6, i_clamp_min: -0.6, antiwindup: true, publish_state: true }
+    pid_yaw_vel: { p: 0.8, i: 2.7, d: 0., i_clamp_max: 0.6, i_clamp_min: -0.6, antiwindup: true, publish_state: true }
     pid_left_leg_theta: { p: 100.0, i: 0., d: 10., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
     pid_right_leg_theta: { p: 100.0, i: 0., d: 10., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
     pid_left_leg_theta_vel: { p: 5.0, i: 1.0, d: 0., i_clamp_max: 5.0, i_clamp_min: -5.0, antiwindup: true, publish_state: true }
@@ -166,11 +166,11 @@ controllers:
     # 轮子半径
     wheel_radius: 0.06
 
-      # theta d_theta x dx phi d_phi
-      # 能平衡 但抖动
-      #    q: [ 50., 1., 100., 20., 350., 1. ]
+    # theta d_theta x dx phi d_phi
+    # 能平衡 但抖动
+    #    q: [ 50., 1., 100., 20., 350., 1. ]
 
-      #    q: [ 100.0, 1, 500, 100, 5000.0, 1 ]
+    #    q: [ 100.0, 1, 500, 100, 5000.0, 1 ]
     # 来回5cm 加速摆杆幅度不大 pitch不太稳定
     #    q: [ 100., 1., 500., 100., 5000., 1. ]
 
