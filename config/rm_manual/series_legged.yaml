@@ -25,9 +25,11 @@ rm_manual:
     charge_power: 40
     extra_power: 60
     burst_power: 280
+    standard_power: 85
     buffer_threshold: 10
     minimum_power: 40
-    power_gain: 0.9
+    power_gain: 0.0
+    total_burst_time: 10
     is_new_capacitor: true
   balance:
     flank_frame: "flank_frame"
@@ -42,7 +44,7 @@ rm_manual:
       - [ 60.0,1.20 ]
       - [ 80.0,1.30 ]
       - [ 180.0,1.90 ]
-      - [ 280.0,2.80 ]
+      - [ 280.0,2.50 ]
     max_linear_y:
       - [ 60.0,1.20 ]
       - [ 80.0,1.30 ]
@@ -51,7 +53,7 @@ rm_manual:
     max_angular_z:
       - [ 60.0,9.3 ]
       - [ 80.0,9.4 ]
-      - [ 280.0,13.5 ]
+      - [ 280.0,9.5 ]
 
     gyro_move_reduction: 0.5
     gyro_rotate_reduction: 1.0
@@ -59,7 +61,7 @@ rm_manual:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
     max_pitch_vel: 8.37
-    gimbal_scale: 8
+    gimbal_scale: 4
     track_timeout: 0.5
     finish_turning_threshold: 2.9
     target_cost_function:
@@ -120,6 +122,7 @@ rm_manual:
       - controllers/chassis_controller
       - controllers/gimbal_controller
     calibration_controllers:
+      - controllers/gimbal_calibration_controller
       - controllers/trigger_calibration_controller
 
   chassis_calibration:
@@ -130,6 +133,12 @@ rm_manual:
       services_name:
         - ""
   gimbal_calibration:
+    - start_controllers:
+        - controllers/gimbal_calibration_controller
+      stop_controllers:
+        - controllers/gimbal_controller
+      services_name:
+        - /controllers/gimbal_calibration_controller/is_calibrated
   shooter_calibration:
     - start_controllers:
         - controllers/trigger_calibration_controller

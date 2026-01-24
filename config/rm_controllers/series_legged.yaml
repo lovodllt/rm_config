@@ -28,8 +28,8 @@ controllers:
         accel: 45.0
       pitch:
         joint: "pitch_joint"
-        pid: { p: 0.6, i: 15.0, d: 0.0, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: false }
-        pid_pos: { p: 18.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: false }
+        pid: { p: 0.2, i: 15.0, d: 0.0, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: false }
+        pid_pos: { p: 14.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: false }
         k_v: 1.0
         accel: 40.0
     delay: 0.03
@@ -63,6 +63,15 @@ controllers:
       max_chassis_angular_vel: 12.0
       track_rotate_target_delay: 0.03
       track_move_target_delay: 0.04
+
+  gimbal_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ pitch_joint_motor ]
+    velocity:
+      joint: pitch_joint
+      search_velocity: 6.28
+      vel_threshold: 1e-2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   trigger_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -122,38 +131,39 @@ controllers:
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # BipedalController
-    pid_left_leg: { p: 600.0, i: 50., d: 60, i_clamp_max: 40.0, i_clamp_min: -40.0, antiwindup: true, publish_state: true }
-    pid_right_leg: { p: 600.0, i: 50., d: 60, i_clamp_max: 40.0, i_clamp_min: -40.0, antiwindup: true, publish_state: true }
-    pid_theta_diff: { p: 200.0, i: 0.0, d: 2.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_left_leg: { p: 700.0, i: 50., d: 30, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
+    pid_right_leg: { p: 700.0, i: 50., d: 30, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
+    #    pid_left_leg: { p: 1300.0, i: 200., d: 150, i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
+    #    pid_right_leg: { p: 1300.0, i: 200., d: 150, i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
+    pid_theta_diff: { p: 150.0, i: 0.0, d: 2.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     pid_roll: { p: 800.0, i: 0, d: 30., i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
     #    pid_yaw_pos: { p: 2.0, i: 1.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
     pid_yaw_pos: { p: 0.0, i: 0.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
-    pid_yaw_vel: { p: 0.8, i: 2.7, d: 0., i_clamp_max: 0.6, i_clamp_min: -0.6, antiwindup: true, publish_state: true }
-    pid_left_leg_theta: { p: 100.0, i: 0., d: 10., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
-    pid_right_leg_theta: { p: 100.0, i: 0., d: 10., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
-    pid_left_leg_theta_vel: { p: 5.0, i: 1.0, d: 0., i_clamp_max: 5.0, i_clamp_min: -5.0, antiwindup: true, publish_state: true }
-    pid_right_leg_theta_vel: { p: 5.0, i: 1.0, d: 0., i_clamp_max: 5.0, i_clamp_min: -5.0, antiwindup: true, publish_state: true }
-    pid_left_wheel_vel: { p: 0.1, i: 0.01, d: 0.0, i_clamp_max: 1.0, i_clamp_min: -1.0, antiwindup: true, publish_state: true }
-    pid_right_wheel_vel: { p: 0.1, i: 0.01, d: 0.0, i_clamp_max: 1.0, i_clamp_min: -1.0, antiwindup: true, publish_state: true }
+    pid_yaw_vel: { p: 0.8, i: 2.5, d: 0., i_clamp_max: 0.6, i_clamp_min: -0.6, antiwindup: true, publish_state: true }
+    pid_left_leg_theta: { p: 60.0, i: 0., d: 5., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
+    pid_right_leg_theta: { p: 60.0, i: 0., d: 5., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
+    pid_left_leg_theta_vel: { p: 6.0, i: 3.0, d: 0., i_clamp_max: 10.0, i_clamp_min: -10.0, antiwindup: true, publish_state: true }
+    pid_right_leg_theta_vel: { p: 6.0, i: 2.0, d: 0., i_clamp_max: 10.0, i_clamp_min: -10.0, antiwindup: true, publish_state: true }
+    pid_left_wheel_vel: { p: 0.1, i: 0.01, d: 0.0, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
+    pid_right_wheel_vel: { p: 0.1, i: 0.01, d: 0.0, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
 
-    pid_left_leg_stand_up: { p: 700.0, i: 50.0, d: 40.0, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
-    pid_right_leg_stand_up: { p: 700.0, i: 50.0, d: 40.0, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
+    pid_left_leg_stand_up: { p: 800.0, i: 0.0, d: 40.0, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
+    pid_right_leg_stand_up: { p: 800.0, i: 0.0, d: 40.0, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
 
-    gravity_force: 30
+    gravity_force: 100
     spring_force: 0
     default_leg_length: 0.2
     L_weight: 0.536
     Lm_weight: 0.463
     # 机体质心距离转轴位置
-    l: 0.03
-    #    l: 0.001
+    l: 0.04
     # 轮子质量
     m_w: 0.563518
     # 摆杆质量
     m_p: 0.554
     #    m_p: 0.2467
     # 机体质量
-    M: 15
+    M: 18
     # 轮子转动惯量
     #    i_w: 0.003357
     i_w: 0.002028
@@ -186,7 +196,7 @@ controllers:
     #    r: [ 1.75, 0.8 ]
 
     # 12-19
-    q: [ 150.0, 1, 540.0, 75, 5025.0, 1 ]
+    q: [ 100.0, 1, 1000.0, 100, 5025.0, 1 ]
 
     # 来回5cm 加速摆杆幅度不大 pitch不太稳定
     #    r: [ 180 , 40 ]
@@ -201,10 +211,11 @@ controllers:
     #    r: [ 70 , 2 ]
 
     # 12-19
-    r: [ 30, 2 ]
+    r: [ 50, 2.0 ]
 
-    x_bias: 0.075
-    pitch_bias: 0.
+    x_bias: 0.07
+    theta_bias: 0.08
+    pitch_bias: -0.0
     roll_bias: 0.
 
     jumpOverTime: 2.0
