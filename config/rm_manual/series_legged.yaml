@@ -19,8 +19,8 @@ rm_manual:
       - [ 60.0,11.0 ]
       - [ 80.0,12.0 ]
       - [ 100.0,13.0 ]
-      - [ 150.0,17.5 ]
-    safety_power: 100
+      - [ 250.0,16.0 ]
+    safety_power: 60
     capacitor_threshold: 0.2
     charge_power: 40
     extra_power: 60
@@ -37,6 +37,8 @@ rm_manual:
     legged_wheel_chassis:
       topic: "/leg_cmd"
       unstick_topic: "/controllers/chassis_controller/unstick/two_leg_unstick"
+      short_leg_length: 0.2
+      high_leg_length: 0.36
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/cmd_chassis"
@@ -53,7 +55,7 @@ rm_manual:
     max_angular_z:
       - [ 60.0,9.3 ]
       - [ 80.0,9.4 ]
-      - [ 280.0,9.5 ]
+      - [ 280.0,10.5 ]
 
     gyro_move_reduction: 0.5
     gyro_rotate_reduction: 1.0
@@ -61,7 +63,7 @@ rm_manual:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
     max_pitch_vel: 8.37
-    gimbal_scale: 4
+    gimbal_scale: 8
     track_timeout: 0.5
     finish_turning_threshold: 2.9
     target_cost_function:
