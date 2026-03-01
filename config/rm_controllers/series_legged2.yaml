@@ -149,7 +149,7 @@ controllers:
     pid_left_leg_stand_up: { p: 600.0, i: 0.0, d: 30.0, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
     pid_right_leg_stand_up: { p: 600.0, i: 0.0, d: 30.0, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
 
-    gravity_force: 130
+    gravity_force: 50
     spring_force: 0
     default_leg_length: 0.2
     # VMC config
