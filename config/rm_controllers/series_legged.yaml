@@ -152,6 +152,11 @@ controllers:
     gravity_force: 130
     spring_force: 0
     default_leg_length: 0.2
+    # VMC config
+    l1: 0.218
+    l2: 0.26
+
+    # LQR model config
     L_weight: 0.53
     Lm_weight: 0.47
     # 机体质心距离转轴位置
