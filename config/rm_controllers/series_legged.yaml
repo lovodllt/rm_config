@@ -18,7 +18,7 @@ controllers:
     controllers:
       yaw:
         joint: "yaw_joint"
-        pid: { p: 0.3, i: 20, d: 0.0, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true, publish_state: false }
+        pid: { p: 0.35, i: 18, d: 0.0, i_clamp_max: 0.12, i_clamp_min: -0.12, antiwindup: true, publish_state: false }
         pid_pos: { p: 20.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: false }
         chassis_comp_a: 0.0
         chassis_comp_b: 0.0
@@ -28,7 +28,8 @@ controllers:
         accel: 28.0
       pitch:
         joint: "pitch_joint"
-        pid: { p: 0.45, i: 16, d: 0.0, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
+        #2/28 p from 0.45 to 0.5 and i form 7 to 10 is all accaptable
+        pid: { p: 0.5, i: 7, d: 0.0, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
         pid_pos: { p: 15.0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
         k_v: 1.0
         accel: 40.0
@@ -40,7 +41,7 @@ controllers:
     feedforward:
       gravity: 6.725
       enable_gravity_compensation: false
-      mass_origin: [ 0.0363,0.0,0.01 ]
+      mass_origin: [ 0.0185,0.0,0.01 ]
     bullet_solver:
       resistance_coff_qd_10: 0.001
       resistance_coff_qd_15: 0.001
@@ -126,7 +127,7 @@ controllers:
     twist_angular: 0.5233
     max_odom_vel: 10.0
     timeout: 0.1
-    pid_follow: { p: 5.0, i: 0, d: 0.7, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 3.5, i: 0, d: 0.5, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     pid_block_error: { p: 0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
@@ -134,12 +135,12 @@ controllers:
     pid_left_leg: { p: 700.0, i: 100., d: 50, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
     pid_right_leg: { p: 700.0, i: 100., d: 50, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
     pid_theta_diff: { p: 160.0, i: 0.0, d: 2.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    pid_roll: { p: 1000.0, i: 0, d: 30., i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
+    pid_roll: { p: 1200.0, i: 0, d: 30., i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
     #    pid_yaw_pos: { p: 2.0, i: 1.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
     pid_yaw_pos: { p: 0.0, i: 0.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
-    pid_yaw_vel: { p: 0.4, i: 1.5, d: 0., i_clamp_max: 1.0, i_clamp_min: -1.0, antiwindup: true, publish_state: true }
-    pid_left_leg_theta: { p: 50.0, i: 0., d: 3., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
-    pid_right_leg_theta: { p: 50.0, i: 0., d: 3., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
+    pid_yaw_vel: { p: 0.35, i: 1.7, d: 0., i_clamp_max: 1.0, i_clamp_min: -1.0, antiwindup: true, publish_state: true }
+    pid_left_leg_theta: { p: 40.0, i: 0., d: 3., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
+    pid_right_leg_theta: { p: 40.0, i: 0., d: 3., i_clamp_max: 2.0, i_clamp_min: -2.0, antiwindup: true, publish_state: true }
     pid_left_leg_theta_vel: { p: 6.0, i: 3.0, d: 0., i_clamp_max: 10.0, i_clamp_min: -10.0, antiwindup: true, publish_state: true }
     pid_right_leg_theta_vel: { p: 6.0, i: 3.0, d: 0., i_clamp_max: 10.0, i_clamp_min: -10.0, antiwindup: true, publish_state: true }
     pid_left_wheel_vel: { p: 0.1, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
@@ -161,7 +162,7 @@ controllers:
     #    m_p: 1.554
     m_p: 1.068
     # 机体质量
-    M: 20
+    M: 11
     # 轮子转动惯量
     i_w: 0.0010134
     #    i_w: 0.002028
@@ -177,12 +178,14 @@ controllers:
 
     # theta d_theta x dx phi d_phi
     q: [ 100.0, 1, 1000.0, 100, 5025.0, 1 ]
-    r: [ 55, 2.0 ]
+    r: [ 50, 2.0 ]
 
-    x_bias: 0.06
+    x_bias: 0.05
     theta_bias: 0.09
     pitch_bias: -0.0
     roll_bias: 0.
+    raw_pitch_bias: 0.
+    raw_theta_bias: 0.
 
     # under_lower_threshold: -M_PI / 2 + 0.7
     under_lower_threshold: -0.8708
