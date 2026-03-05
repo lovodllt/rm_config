@@ -24,7 +24,7 @@ controllers:
       pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
-    type: rm_chassis_controllers/OmniController
+    type: rm_chassis_controllers/SwerveController
     # ChassisBase
     publish_rate: 100
     enable_odom_tf: true
@@ -39,28 +39,45 @@ controllers:
     pid_follow: { p: 6.5, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
-    # OmniController
-    wheels:
+    # SwerveController
+    modules:
       left_front:
-        pose: [ 0.147, 0.147, 2.356 ]
-        joint: left_front_wheel_joint
-        <<: &wheel_setting
-          roller_angle: 0.
-          radius: 0.07625
-          pid: { p: 0.25, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+        position: [ 0.200, 0.200 ]
+        pivot:
+          joint: left_front_pivot_joint
+          <<: &pivot_setting
+            buffer_threshold: 10.0
+            offset: 0.
+            pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: false }
+        wheel:
+          joint: left_front_wheel_joint
+          <<: &wheel_setting
+            radius: 0.061
+            pid: { p: 0.35, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: false }
       right_front:
-        pose: [ 0.147, -0.147, 0.785 ]
-        joint: right_front_wheel_joint
-        <<: *wheel_setting
+        position: [ 0.200, -0.200 ]
+        pivot:
+          joint: right_front_pivot_joint
+          <<: *pivot_setting
+        wheel:
+          joint: right_front_wheel_joint
+          <<: *wheel_setting
       left_back:
-        pose: [ -0.147, 0.147, -2.356 ]
-        joint: left_back_wheel_joint
-        <<: *wheel_setting
+        position: [ -0.200, 0.200 ]
+        pivot:
+          joint: left_back_pivot_joint
+          <<: *pivot_setting
+        wheel:
+          joint: left_back_wheel_joint
+          <<: *wheel_setting
       right_back:
-        pose: [ -0.147, -0.147, -0.785 ]
-        joint: right_back_wheel_joint
-        <<: *wheel_setting
-
+        position: [ -0.200, -0.200 ]
+        pivot:
+          joint: right_back_pivot_joint
+          <<: *pivot_setting
+        wheel:
+          joint: right_back_wheel_joint
+          <<: *wheel_setting
   orientation_controller:
     type: rm_orientation_controller/Controller
     publish_rate: 100
