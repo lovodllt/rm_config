@@ -95,10 +95,6 @@ rm_manual:
       heat_coeff: 20.0
       use_local_heat_: false
       type: "ID1_17MM"
-  cover:
-    topic: "/controllers/cover_controller/command"
-    on_pos: 1.94
-    off_pos: 0.013
   buff_switch:
     fail_limit: 10
     service_name: "/buff_status_switch"
