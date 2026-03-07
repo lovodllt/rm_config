@@ -27,12 +27,15 @@ controllers:
     type: rm_chassis_controllers/SwerveController
     # ChassisBase
     publish_rate: 100
-    enable_odom_tf: true
-    publish_odom_tf: false
+    publish_map_tf: false
+    publish_odom_tf: true
     power:
       effort_coeff: 5.0
-      vel_coeff: 0.006
+      vel_coeff: 0.06
       power_offset: -8.41
+      pivot_max_power: 50
+      pivot_effort_coeff: 5.0
+      pivot_vel_coeff: 0.006
     twist_angular: 0.5233
     max_odom_vel: 10.0
     timeout: 0.1
