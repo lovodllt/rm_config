@@ -83,5 +83,3 @@ rm_referee:
 #        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
 #      - name: "armor3"
 #        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
-
-
