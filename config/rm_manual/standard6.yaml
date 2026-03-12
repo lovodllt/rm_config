@@ -3,14 +3,21 @@ rm_manual:
   dbus_topic: "/rm_ecat_hw/dbus"
   chassis_calibrate_motor: [ ]
   gimbal_calibrate_motor: [ ]
-  shooter_calibrate_motor: [ "cover_joint_motor", "trigger_joint_motor" ]
+  chassis_motor: [ "right_front_wheel_motor", "left_front_wheel_motor", "left_back_wheel_motor", "right_back_wheel_motor" ]
+  shooter_calibrate_motor: [ "trigger_joint_motor" ]
   buff_gyro_rotate_limit: 6.0
   chassis:
     topic: "/cmd_chassis"
     accel_x:
-      - [ 50.0,99.0 ]
+      - [ 50.0,21.0 ]
+      - [ 80.0,21.0 ]
+      - [ 100.0,30.0 ]
+      - [ 220.0,30.0 ]
     accel_y:
-      - [ 50.0,99.0 ]
+      - [ 50.0,21.0 ]
+      - [ 80.0,21.0 ]
+      - [ 100.0,30.0 ]
+      - [ 220.0,30.0 ]
     accel_z:
       - [ 50.0,99.0 ]
     safety_power: 50
@@ -52,11 +59,11 @@ rm_manual:
     sin_gyro_phase: 0.0
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 6.28
+    max_yaw_vel: 4.2
     max_pitch_vel: 5.0
     time_constant_rc: 0.02
     time_constant_pc: 0.08
-    gimbal_scale: 10.0
+    gimbal_scale: 15.0
     track_timeout: 0.5
     eject_sensitivity: 0.5
     finish_turning_threshold: 2.9
@@ -69,31 +76,32 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    track_armor_error_tolerance: 0.12
-    untrack_armor_error_tolerance: 0.04
+    track_armor_error_tolerance: 0.06
+    untrack_armor_error_tolerance: 0.12
     track_buff_error_tolerance: 0.12
-    max_track_target_vel: 10.5
+    max_track_target_vel: 15.0
     target_acceleration_tolerance: 99.
     speed_10m_per_speed: 23.5
     speed_15m_per_speed: 23.5
     speed_16m_per_speed: 23.5
     speed_18m_per_speed: 23.5
     speed_30m_per_speed: 23.5
-    wheel_speed_15: 700.0
-    wheel_speed_18: 700.0
-    wheel_speed_30: 700.0
+    wheel_speed_15: 680.0
+    wheel_speed_18: 680.0
+    wheel_speed_30: 680.0
     wheel_speed_gain: 0.5
     extra_wheel_speed_once: 5.0
-    speed_oscillation: 1.0
+    speed_oscillation: 0.5
     auto_wheel_speed: false
     heat_limit:
-      low_shoot_frequency: 20
-      high_shoot_frequency: 20
-      burst_shoot_frequency: 20
-      minimal_shoot_frequency: 1.75
+      low_shoot_frequency: 5
+      high_shoot_frequency: 5
+      burst_shoot_frequency: 5
+      minimal_shoot_frequency: 5
       safe_shoot_frequency: 3
-      heat_coeff: 20.0
-      use_local_heat_: false
+      heat_coeff: 10.0
+      use_local_heat: true
+      local_heat_protect_threshold: 30
       type: "ID1_17MM"
   buff_switch:
     fail_limit: 10

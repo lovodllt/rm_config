@@ -1,0 +1,23 @@
+can_motors:
+  - can_id: 6
+    can_bus: 0
+    name: "yaw_joint_motor"
+    type: "GM6020"
+  - can_id: 7
+    can_bus: 1
+    name: "pitch_joint_motor"
+    type: "GM6020"
+  - can_id: 2
+    can_bus: 1
+    name: "left_friction_wheel_joint_motor"
+    type: "M3508"
+  - can_id: 1
+    can_bus: 1
+    name: "right_friction_wheel_joint_motor"
+    type: "M3508"
+can_imus:
+  - can_bus: 1
+    name: "gimbal_imu"
+    bias: [ -0.002990525, -0.003546617, -0.00197538 ]
+dbus:
+  - name: "dbus"
