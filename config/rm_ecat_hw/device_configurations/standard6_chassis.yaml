@@ -33,7 +33,7 @@ can_motors:
     name: "left_back_pivot_motor"
     type: "GM6020"
 
-  - can_id: 7
+  - can_id: 2
     can_bus: 0
     name: "trigger_joint_motor"
     type: "M3508"
