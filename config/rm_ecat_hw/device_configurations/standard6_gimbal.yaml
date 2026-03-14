@@ -1,5 +1,5 @@
 can_motors:
-  - can_id: 6
+  - can_id: 8
     can_bus: 0
     name: "yaw_joint_motor"
     type: "GM6020"
