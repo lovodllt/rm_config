@@ -136,5 +136,3 @@ controllers:
       backward_angle: -0.11
       joint: yaw_joint
       pid: { p: 2000000, i: 0, d: 1000, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
-
-

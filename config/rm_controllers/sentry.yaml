@@ -183,4 +183,3 @@ controllers:
     type: effort_controllers/JointPositionController
     joint: "barrel_joint"
     pid: { p: 30.0, i: 15.0, d: 0.3, i_clamp_max: 0.03, i_clamp_min: -0.03, antiwindup: true, publish_state: false }
-

@@ -197,4 +197,3 @@ rm_manual:
         - /controllers/left_clamp_calibration_controller/is_calibrated
         - /controllers/mid_clamp_calibration_controller/is_calibrated
         - /controllers/right_clamp_calibration_controller/is_calibrated
-
