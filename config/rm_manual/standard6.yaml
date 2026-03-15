@@ -20,7 +20,7 @@ rm_manual:
     disable_cap_gyro_threshold: 0.7
     charge_power: 0
     extra_power: 0
-    standard_power: 120
+    standard_power: 220
     burst_power: 220
     max_power_limit: 220
     buffer_threshold: 10
