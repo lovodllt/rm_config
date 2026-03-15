@@ -132,10 +132,10 @@ controllers:
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # BipedalController
-    pid_left_leg: { p: 700.0, i: 100., d: 50, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
-    pid_right_leg: { p: 700.0, i: 100., d: 50, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
+    pid_left_leg: { p: 500.0, i: 100., d: 50, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
+    pid_right_leg: { p: 500.0, i: 100., d: 50, i_clamp_max: 20.0, i_clamp_min: -20.0, antiwindup: true, publish_state: true }
     pid_theta_diff: { p: 160.0, i: 0.0, d: 2.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    pid_roll: { p: 1200.0, i: 0, d: 30., i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
+    pid_roll: { p: 1100.0, i: 0, d: 30., i_clamp_max: 30.0, i_clamp_min: -30.0, antiwindup: true, publish_state: true }
     #    pid_yaw_pos: { p: 2.0, i: 1.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
     pid_yaw_pos: { p: 0.0, i: 0.0, d: 0.0, i_clamp_max: 3.0, i_clamp_min: 3.0, antiwindup: true, publish_state: true }
     pid_yaw_vel: { p: 0.35, i: 1.7, d: 0., i_clamp_max: 1.0, i_clamp_min: -1.0, antiwindup: true, publish_state: true }
@@ -182,8 +182,12 @@ controllers:
     wheel_radius: 0.06
 
     # theta d_theta x dx phi d_phi
-    q: [ 100.0, 1, 1000.0, 100, 5025.0, 1 ]
-    r: [ 50, 2.0 ]
+    #    q: [ 100.0, 1, 1000.0, 100, 5025.0, 1 ]
+    #    r: [ 50, 2.0 ]
+
+    # gazebo better
+    q: [ 100.0, 1, 500.0, 250, 7500.0, 1 ]
+    r: [ 10, 2.0 ]
 
     x_bias: 0.05
     theta_bias: 0.09
