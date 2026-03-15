@@ -67,9 +67,6 @@ rm_referee:
         config: { type: "line", width: 2, color: "green",
                   start_position: [ 1550, 560 ], end_position: [ 1750, 560 ] }
     flash:
-      - name: "cover"
-        config: { start_position: [ 830, 700 ], size: 25, width: 2,
-                  color: "green", content: "cover open!!", delay: 0.8 }
       - name: "ore"
         config: { start_position: [ 960, 720 ], size: 15, width: 2,
                   color: "yellow", content: "Ore will released after 10s", delay: 0.4 }

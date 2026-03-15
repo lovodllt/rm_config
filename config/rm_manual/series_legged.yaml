@@ -3,7 +3,7 @@ rm_manual:
   dbus_topic: "/rm_ecat_hw/dbus"
   tof_topic: "/tof"
   chassis_calibrate_motor: [ "left_hip_motor", "right_hip_motor", "left_knee_motor", "right_knee_motor" ]
-  gimbal_calibrate_motor: [ "pitch_joint_motor" ]
+  gimbal_calibrate_motor: [ "" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   supply_frame: "yaw"
   chassis:
@@ -11,16 +11,16 @@ rm_manual:
     accel_x:
       - [ 60.0,1.5 ]
       - [ 80.0,1.8 ]
-      - [ 100.0,2.2 ]
-      - [ 250.0,2.9 ]
+      - [ 100.0,1.9 ]
+      - [ 250.0,2.3 ]
     accel_y:
       - [ 60.0,3.0 ]
     accel_z:
       - [ 60.0,11.0 ]
       - [ 80.0,12.0 ]
       - [ 100.0,14.0 ]
-      - [ 250.0,17.5 ]
-    safety_power: 260
+      - [ 250.0,18.5 ]
+    safety_power: 80
     capacitor_threshold: 0.2
     charge_power: 40
     extra_power: 60
@@ -39,7 +39,7 @@ rm_manual:
       unstick_topic: "/controllers/chassis_controller/unstick/two_leg_unstick"
       short_leg_length: 0.2
       mid_leg_length: 0.32
-      high_leg_length: 0.37
+      high_leg_length: 0.36
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/cmd_chassis"
@@ -90,9 +90,9 @@ rm_manual:
     wheel_speed_30: 700.0 # 715
     extra_wheel_speed_once: 5.0
     heat_limit:
-      low_shoot_frequency: 20
-      high_shoot_frequency: 20
-      burst_shoot_frequency: 20
+      low_shoot_frequency: 10
+      high_shoot_frequency: 10
+      burst_shoot_frequency: 10
       minimal_shoot_frequency: 1.75
       safe_shoot_frequency: 3
       safe_speed_limit: 30
@@ -126,7 +126,7 @@ rm_manual:
       - controllers/gimbal_controller
       - controllers/shooter_controller
     calibration_controllers:
-      - controllers/gimbal_calibration_controller
+      #      - controllers/gimbal_calibration_controller
       - controllers/trigger_calibration_controller
 
   chassis_calibration:
@@ -137,12 +137,6 @@ rm_manual:
       services_name:
         - ""
   gimbal_calibration:
-    - start_controllers:
-        - controllers/gimbal_calibration_controller
-      stop_controllers:
-        - controllers/gimbal_controller
-      services_name:
-        - /controllers/gimbal_calibration_controller/is_calibrated
   shooter_calibration:
     - start_controllers:
         - controllers/trigger_calibration_controller
