@@ -38,4 +38,3 @@ gpios:
   - name: "calibration_right"
     pin: 0
     mode: 0
-
